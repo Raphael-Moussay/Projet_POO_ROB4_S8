@@ -61,6 +61,20 @@ TEST(CompareOperator, testCompareOperator) {
     auto endManual = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> durationManual = endManual - startManual;
     std::cout << "Time taken by manual multiplication: " << durationManual.count() << " seconds" << std::endl;
+
+    // On fait la multiplication avec pinocchio pour comparer
+    auto startPinocchio = std::chrono::high_resolution_clock::now();
+    pinocchio::SE3 se3C = se3A * se3B;
+    auto endPinocchio = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> durationPinocchio = endPinocchio - startPinocchio;
+    std::cout << "Time taken by Pinocchio multiplication: " << durationPinocchio.count() << " seconds" << std::endl;
+
+    // On vérifie que les résultats sont approximativement égaux
+    std::cout << "C_eigen:\n" << C_eigen << std::endl;
+    std::cout << "C_manual:\n" << C_manual << std::endl;
+    EXPECT_TRUE(C_eigen.isApprox(C_manual, 1e-3));
+    std::cout << "C_pinocchio:\n" << se3C.toHomogeneousMatrix() << std::endl;
+    EXPECT_TRUE(C_eigen.isApprox(se3C.toHomogeneousMatrix(), 1e-3));
 }
 void exo1() 
 {
