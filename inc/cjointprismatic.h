@@ -1,5 +1,5 @@
 #pragma once
-#include "cjoint.h"
+#include "../inc/inc.h"
 
 class CJointPrismatic : public CJoint{
     public:
@@ -8,9 +8,9 @@ class CJointPrismatic : public CJoint{
         /**
          * @brief Calcule la matrice de transformation homogène associée à la configuration prismatique.
          */
-        virtual Mat4 getTransform() const override{
+        virtual Eigen::Matrix4d getTransform() const override{
             std::cout << "Prismatic transform from derivate class" << std::endl;
-            Mat4 transform = Mat4::Identity();
+            Eigen::Matrix4d transform = Eigen::Matrix4d::Identity();
             transform(2,3) = *q_;
             return transform;
         }

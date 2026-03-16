@@ -1,5 +1,5 @@
 #pragma once
-#include "cjoint.h"
+#include "../inc/inc.h"
 
 
 class CJointRevolute : public CJoint{
@@ -19,9 +19,9 @@ class CJointRevolute : public CJoint{
        /**
          * @brief Calcule la matrice de transformation homogène associée à la configuration revolution.
          */
-        virtual Mat4 getTransform() const override{
+        virtual Eigen::Matrix4d getTransform() const override{
             std::cout << "Revolute transform from derivate class" << std::endl;
-            Mat4 transform = Mat4::Identity();
+            Eigen::Matrix4d transform = Eigen::Matrix4d::Identity();
             double theta = *q_;
             double c = cos(theta);
             double s = sin(theta);

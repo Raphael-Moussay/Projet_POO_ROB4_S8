@@ -4,10 +4,6 @@
 #include <memory>
 #include <eigen3/Eigen/Dense>
 
-using namespace Eigen;
-using Mat4 = Matrix4d;
-
-
 
 class CJoint{
     protected:
@@ -53,7 +49,7 @@ class CJoint{
         const double& getQMin() const {return *qMin_;};
         const double& getQMax() const {return *qMax_;};
 
-        virtual Mat4 getTransform() const = 0;
+        virtual Eigen::Matrix4d getTransform() const = 0;
         virtual std::string getTypeName() const = 0;
         virtual std::unique_ptr<CJoint> clone() const = 0;
 };
