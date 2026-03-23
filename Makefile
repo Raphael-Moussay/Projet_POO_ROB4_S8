@@ -2,33 +2,25 @@
 EXEC_NAME = run
 
 # Compilateur
-CXX = g++
+CC = g++
 
-PKG_CONFIG ?= pkg-config
-
-# If running inside conda, make pinocchio.pc discoverable automatically and set the rpath to avoid runtime issues
-ifneq ($(CONDA_PREFIX),)
-PKG_CONFIG_PATH := $(CONDA_PREFIX)/lib/pkgconfig:$(PKG_CONFIG_PATH)
-export PKG_CONFIG_PATH
-RPATH_FLAG = -Wl,-rpath,$(CONDA_PREFIX)/lib
-endif
-
-PINOCCHIO_CFLAGS := $(shell PKG_CONFIG_PATH="$(PKG_CONFIG_PATH)" $(PKG_CONFIG) --cflags pinocchio eigen3 2>/dev/null)
-PINOCCHIO_LIBS := $(shell PKG_CONFIG_PATH="$(PKG_CONFIG_PATH)" $(PKG_CONFIG) --libs pinocchio eigen3 2>/dev/null)
-
-GTEST_LIBS := $(shell PKG_CONFIG_PATH="$(PKG_CONFIG_PATH)" $(PKG_CONFIG) --libs gtest 2>/dev/null)
-
-# Flags GCC standards
-CXXFLAGS = -Wall -Wextra -std=c++17 -I$(INC_DIR) $(PINOCCHIO_CFLAGS) 
-
-# Flags des bibliotheques standard et externe
-LDLIBS = $(PINOCCHIO_LIBS) $(GTEST_LIBS) -lgtest -pthread $(RPATH_FLAG)
+# Récupération des flags via pkg-config (Pinocchio inclut déjà Eigen3)
+PKGS = pinocchio eigen3
+PKG_CFLAGS = $(shell pkg-config --cflags $(PKGS))
+PKG_LIBS = $(shell pkg-config --libs $(PKGS))
 
 # Dossiers
 SRC_DIR = ./src
 INC_DIR = ./inc
 BIN_DIR = ./bin
 BUILD_DIR = ./build
+
+# Flags GCC standards 
+# Ajout de PKG_CFLAGS pour les headers externes
+CFLAGS = -Wall -Wextra -std=c++17 -pedantic -g -I$(INC_DIR) $(PKG_CFLAGS) -MMD -MP
+
+# Flags des bibliothèques : Ajout de GTest et des libs Pinocchio 
+LDLIBS = $(PKG_LIBS) -lgtest -lgtest_main -lpthread
 
 # Fichiers sources et objets
 SRCS = $(wildcard $(SRC_DIR)/*.cpp)
@@ -40,39 +32,35 @@ EXEC = $(BIN_DIR)/$(EXEC_NAME)
 
 # Règle par défaut
 all: $(EXEC)
+	@echo "\033[32m --- Compilation terminée avec succès --- \033[37m"
 
-# Compilation de l'exécutable
+# Compilation de l'exécutable (Ordre critique : objets AVANT les libs)
 $(EXEC): $(OBJS) | $(BIN_DIR)
-	$(CXX) $(OBJS) -o $@ $(LDLIBS)
-#@echo "$(CXX) $(OBJS) -o $@ $(LDLIBS)"
+	@echo "\033[36m Création de l'exécutable : $@ \033[37m"
+	@$(CC) $(LDFLAGS) $(OBJS) -o $@ $(LDLIBS)
 
 # Compilation des fichiers objets
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo "\033[33m Compilation de $< \033[37m"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(BUILD_DIR) $(BIN_DIR):
-	mkdir -p $@
-
-
-# Création des dossiers si nécessaire
+# Création des dossiers
 makedir: 
-	mkdir -p $(BUILD_DIR)
-	mkdir -p $(BIN_DIR)
-	mkdir -p $(SRC_DIR)
-	mkdir -p $(INC_DIR)
+	mkdir -p $(BUILD_DIR) $(BIN_DIR) $(SRC_DIR) $(INC_DIR)
 
 # Nettoyage
 clean:
-	rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d
+	@echo "\033[31mSuppression des objets \033[37m"
+	@rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d
 
 aclean: clean
-	rm -f $(EXEC)
+	@echo "\033[31mSuppression de l'exécutable \033[37m"
+	@rm -f $(EXEC)
 
 # Force rebuild
-rebuild: aclean all
+rebuild: clean all
 
 # Inclusion des dépendances auto-générées
 -include $(DEPS)
 
-# Déclaration des règles "virtuelles"
-.PHONY: all clean aclean rebuild
+.PHONY: all clean aclean rebuild makedir

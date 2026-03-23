@@ -1,0 +1,43 @@
+\doxysection{cjointrevolute.\+h}
+\hypertarget{cjointrevolute_8h_source}{}\label{cjointrevolute_8h_source}\index{inc/cjointrevolute.h@{inc/cjointrevolute.h}}
+\mbox{\hyperlink{cjointrevolute_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../inc/inc.h"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCJointRevolute}{CJointRevolute}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCJoint}{CJoint}}\{}
+\DoxyCodeLine{00006\ \ \ \ \ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{private}}\ :\ }
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ *dx\_;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJointRevolute_afda476cee57784891c70108db0d8f084}{CJointRevolute}}(\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMin}}=-\/\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{M\_PI}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMax}}=\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{M\_PI}},\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q}}=0,\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{dx}}=0):\ \mbox{\hyperlink{classCJoint}{CJoint}}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMin}},\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMax}},\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q}})\{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ dx\_\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{dx}});}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCJointRevolute_a70a75689002cb7b100a9a39f3816817e}{\string~CJointRevolute}}()\{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ dx\_;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\&\ \mbox{\hyperlink{classCJointRevolute_a7e2250f5adbd27c76cd2d75615aaddc0}{getDx}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ *dx\_;\ \};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCJointRevolute_a96f4ad50ed63f4e805ebf3a689ec2d5e}{setDx}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{dx}})\ \{\ *dx\_\ =\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{dx}};\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ Eigen::Matrix4d\ \mbox{\hyperlink{classCJointRevolute_ac5495571f87e3885ef3434a81e1ad93f}{getTransform}}()\textcolor{keyword}{\ const\ override}\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Revolute\ transform\ from\ derivate\ class"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}}\ =\ Eigen::Matrix4d::Identity();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{theta}}\ =\ *\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{c}}\ =\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{cos}}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{theta}});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{s}}\ =\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{sin}}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{theta}});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}}(0,0)\ =\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{c}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}}(0,1)\ =\ -\/\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{s}};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}}(1,0)\ =\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{s}};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}}(1,1)\ =\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{c}};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}}(0,3)\ =\ *dx\_;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCJointRevolute_a78f29b65083d692bc8bd8402d5b28c1d}{getTypeName}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Revolute"{}};\ \};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::unique\_ptr<CJoint>\ \mbox{\hyperlink{classCJointRevolute_ac91322b995b07960efe6551c6e5e7212}{clone}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ std::make\_unique<CJointRevolute>(*\textcolor{keyword}{this});\ \};}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+
+\end{DoxyCode}

@@ -46,7 +46,3 @@ Quel exercice voulez-vous tester ? (1, 2 ou q pour quitter) :
 ```
 
 Il suffit de rentrer la valeur de votre choix parmi celles proposées : 1, 2 ou q
-
-# Compte rendu
-
-## Exercice 1 : Conception UML et hiérarchie de joints

@@ -1,0 +1,231 @@
+\doxysection{inc/colors.h File Reference}
+\hypertarget{colors_8h}{}\label{colors_8h}\index{inc/colors.h@{inc/colors.h}}
+
+
+Utilitaires pour la manipulation des couleurs et styles du terminal ANSI.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for colors.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{colors_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{colors_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{colors_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}}~"{}\textbackslash{}033\mbox{[}0m"{}
+\begin{DoxyCompactList}\small\item\em Réinitialise tous les attributs (couleurs et styles). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{colors_8h_a26cdbb1a00213c810caccf21cd33a631}{BOLD}}~"{}\textbackslash{}033\mbox{[}1m"{}
+\begin{DoxyCompactList}\small\item\em Active le texte en gras. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{colors_8h_a3461360dbb2ddad643d0d906fedf900c}{F\+\_\+\+BLACK}}~"{}\textbackslash{}033\mbox{[}30m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_aadb9ebbc5ab5bba2175148b1065c9982}{F\+\_\+\+RED}}~"{}\textbackslash{}033\mbox{[}31m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_ac174e179fed29e403e59678028477efb}{F\+\_\+\+GREEN}}~"{}\textbackslash{}033\mbox{[}32m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_aecb7646e530924042cb9547210d5e806}{F\+\_\+\+YELLOW}}~"{}\textbackslash{}033\mbox{[}33m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_aa4bf6e3744709b22e5fc07fbcc4e1d75}{F\+\_\+\+BLUE}}~"{}\textbackslash{}033\mbox{[}34m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_a36eaf408b8b03c6a31fcd55bfc64aaa2}{F\+\_\+\+PURPLE}}~"{}\textbackslash{}033\mbox{[}35m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_aad6c073efc9dc350a86c7d50d1eb062c}{F\+\_\+\+CYAN}}~"{}\textbackslash{}033\mbox{[}36m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_adef0c268dde9d7141995af9c26650ed8}{F\+\_\+\+WHITE}}~"{}\textbackslash{}033\mbox{[}37m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_a5b40822c9dc626d3d15fa18bc4b35c70}{B\+\_\+\+BLACK}}~"{}\textbackslash{}033\mbox{[}40m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_a99aab81746be2e0e639f9341c1626c21}{B\+\_\+\+RED}}~"{}\textbackslash{}033\mbox{[}41m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_aea9690ec7583bb234653d1de0754a699}{B\+\_\+\+GREEN}}~"{}\textbackslash{}033\mbox{[}42m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_aa59172a984a6410f5fcb4ab866bfb1b9}{B\+\_\+\+YELLOW}}~"{}\textbackslash{}033\mbox{[}43m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_addc0fe328be105b5cd5c644d02b70556}{B\+\_\+\+BLUE}}~"{}\textbackslash{}033\mbox{[}44m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_acb242ac3e6c4fef370908448dca25026}{B\+\_\+\+PURPLE}}~"{}\textbackslash{}033\mbox{[}45m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_a3624b4db7d9f12eb2edaf13707f15bec}{B\+\_\+\+CYAN}}~"{}\textbackslash{}033\mbox{[}46m"{}
+\item 
+\#define \mbox{\hyperlink{colors_8h_a837c2ce96fbcd7df09d29cbb70cf7fc6}{B\+\_\+\+WHITE}}~"{}\textbackslash{}033\mbox{[}47m"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{colors_8h_a58a65b579421423f4c3cf01f03c5c19a}{colors}} (const char \texorpdfstring{$\ast$}{*}code)
+\begin{DoxyCompactList}\small\item\em Change la couleur du texte dans le terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{colors_8h_ab1b0cc37f2041a1bdfd00690d80de6e1}{set\+\_\+style}} (const char \texorpdfstring{$\ast$}{*}text, const char \texorpdfstring{$\ast$}{*}bg, int bold)
+\begin{DoxyCompactList}\small\item\em Configure le style complet du terminal en une seule commande. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utilitaires pour la manipulation des couleurs et styles du terminal ANSI. 
+
+Permet de changer la couleur du texte, de l\textquotesingle{}arrière-\/plan et la graisse. Valable en CPP et C 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{colors_8h_a5b40822c9dc626d3d15fa18bc4b35c70}\label{colors_8h_a5b40822c9dc626d3d15fa18bc4b35c70} 
+\index{colors.h@{colors.h}!B\_BLACK@{B\_BLACK}}
+\index{B\_BLACK@{B\_BLACK}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{B\_BLACK}{B\_BLACK}}
+{\footnotesize\ttfamily \#define B\+\_\+\+BLACK~"{}\textbackslash{}033\mbox{[}40m"{}}
+
+Fond Noir \Hypertarget{colors_8h_addc0fe328be105b5cd5c644d02b70556}\label{colors_8h_addc0fe328be105b5cd5c644d02b70556} 
+\index{colors.h@{colors.h}!B\_BLUE@{B\_BLUE}}
+\index{B\_BLUE@{B\_BLUE}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{B\_BLUE}{B\_BLUE}}
+{\footnotesize\ttfamily \#define B\+\_\+\+BLUE~"{}\textbackslash{}033\mbox{[}44m"{}}
+
+Fond Bleu \Hypertarget{colors_8h_a3624b4db7d9f12eb2edaf13707f15bec}\label{colors_8h_a3624b4db7d9f12eb2edaf13707f15bec} 
+\index{colors.h@{colors.h}!B\_CYAN@{B\_CYAN}}
+\index{B\_CYAN@{B\_CYAN}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{B\_CYAN}{B\_CYAN}}
+{\footnotesize\ttfamily \#define B\+\_\+\+CYAN~"{}\textbackslash{}033\mbox{[}46m"{}}
+
+Fond Cyan \Hypertarget{colors_8h_aea9690ec7583bb234653d1de0754a699}\label{colors_8h_aea9690ec7583bb234653d1de0754a699} 
+\index{colors.h@{colors.h}!B\_GREEN@{B\_GREEN}}
+\index{B\_GREEN@{B\_GREEN}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{B\_GREEN}{B\_GREEN}}
+{\footnotesize\ttfamily \#define B\+\_\+\+GREEN~"{}\textbackslash{}033\mbox{[}42m"{}}
+
+Fond Vert \Hypertarget{colors_8h_acb242ac3e6c4fef370908448dca25026}\label{colors_8h_acb242ac3e6c4fef370908448dca25026} 
+\index{colors.h@{colors.h}!B\_PURPLE@{B\_PURPLE}}
+\index{B\_PURPLE@{B\_PURPLE}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{B\_PURPLE}{B\_PURPLE}}
+{\footnotesize\ttfamily \#define B\+\_\+\+PURPLE~"{}\textbackslash{}033\mbox{[}45m"{}}
+
+Fond Violet \Hypertarget{colors_8h_a99aab81746be2e0e639f9341c1626c21}\label{colors_8h_a99aab81746be2e0e639f9341c1626c21} 
+\index{colors.h@{colors.h}!B\_RED@{B\_RED}}
+\index{B\_RED@{B\_RED}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{B\_RED}{B\_RED}}
+{\footnotesize\ttfamily \#define B\+\_\+\+RED~"{}\textbackslash{}033\mbox{[}41m"{}}
+
+Fond Rouge \Hypertarget{colors_8h_a837c2ce96fbcd7df09d29cbb70cf7fc6}\label{colors_8h_a837c2ce96fbcd7df09d29cbb70cf7fc6} 
+\index{colors.h@{colors.h}!B\_WHITE@{B\_WHITE}}
+\index{B\_WHITE@{B\_WHITE}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{B\_WHITE}{B\_WHITE}}
+{\footnotesize\ttfamily \#define B\+\_\+\+WHITE~"{}\textbackslash{}033\mbox{[}47m"{}}
+
+Fond Blanc \Hypertarget{colors_8h_aa59172a984a6410f5fcb4ab866bfb1b9}\label{colors_8h_aa59172a984a6410f5fcb4ab866bfb1b9} 
+\index{colors.h@{colors.h}!B\_YELLOW@{B\_YELLOW}}
+\index{B\_YELLOW@{B\_YELLOW}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{B\_YELLOW}{B\_YELLOW}}
+{\footnotesize\ttfamily \#define B\+\_\+\+YELLOW~"{}\textbackslash{}033\mbox{[}43m"{}}
+
+Fond Jaune \Hypertarget{colors_8h_a26cdbb1a00213c810caccf21cd33a631}\label{colors_8h_a26cdbb1a00213c810caccf21cd33a631} 
+\index{colors.h@{colors.h}!BOLD@{BOLD}}
+\index{BOLD@{BOLD}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{BOLD}{BOLD}}
+{\footnotesize\ttfamily \#define BOLD~"{}\textbackslash{}033\mbox{[}1m"{}}
+
+
+
+Active le texte en gras. 
+
+\Hypertarget{colors_8h_a3461360dbb2ddad643d0d906fedf900c}\label{colors_8h_a3461360dbb2ddad643d0d906fedf900c} 
+\index{colors.h@{colors.h}!F\_BLACK@{F\_BLACK}}
+\index{F\_BLACK@{F\_BLACK}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{F\_BLACK}{F\_BLACK}}
+{\footnotesize\ttfamily \#define F\+\_\+\+BLACK~"{}\textbackslash{}033\mbox{[}30m"{}}
+
+Texte Noir \Hypertarget{colors_8h_aa4bf6e3744709b22e5fc07fbcc4e1d75}\label{colors_8h_aa4bf6e3744709b22e5fc07fbcc4e1d75} 
+\index{colors.h@{colors.h}!F\_BLUE@{F\_BLUE}}
+\index{F\_BLUE@{F\_BLUE}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{F\_BLUE}{F\_BLUE}}
+{\footnotesize\ttfamily \#define F\+\_\+\+BLUE~"{}\textbackslash{}033\mbox{[}34m"{}}
+
+Texte Bleu \Hypertarget{colors_8h_aad6c073efc9dc350a86c7d50d1eb062c}\label{colors_8h_aad6c073efc9dc350a86c7d50d1eb062c} 
+\index{colors.h@{colors.h}!F\_CYAN@{F\_CYAN}}
+\index{F\_CYAN@{F\_CYAN}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{F\_CYAN}{F\_CYAN}}
+{\footnotesize\ttfamily \#define F\+\_\+\+CYAN~"{}\textbackslash{}033\mbox{[}36m"{}}
+
+Texte Cyan \Hypertarget{colors_8h_ac174e179fed29e403e59678028477efb}\label{colors_8h_ac174e179fed29e403e59678028477efb} 
+\index{colors.h@{colors.h}!F\_GREEN@{F\_GREEN}}
+\index{F\_GREEN@{F\_GREEN}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{F\_GREEN}{F\_GREEN}}
+{\footnotesize\ttfamily \#define F\+\_\+\+GREEN~"{}\textbackslash{}033\mbox{[}32m"{}}
+
+Texte Vert \Hypertarget{colors_8h_a36eaf408b8b03c6a31fcd55bfc64aaa2}\label{colors_8h_a36eaf408b8b03c6a31fcd55bfc64aaa2} 
+\index{colors.h@{colors.h}!F\_PURPLE@{F\_PURPLE}}
+\index{F\_PURPLE@{F\_PURPLE}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{F\_PURPLE}{F\_PURPLE}}
+{\footnotesize\ttfamily \#define F\+\_\+\+PURPLE~"{}\textbackslash{}033\mbox{[}35m"{}}
+
+Texte Violet \Hypertarget{colors_8h_aadb9ebbc5ab5bba2175148b1065c9982}\label{colors_8h_aadb9ebbc5ab5bba2175148b1065c9982} 
+\index{colors.h@{colors.h}!F\_RED@{F\_RED}}
+\index{F\_RED@{F\_RED}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{F\_RED}{F\_RED}}
+{\footnotesize\ttfamily \#define F\+\_\+\+RED~"{}\textbackslash{}033\mbox{[}31m"{}}
+
+Texte Rouge \Hypertarget{colors_8h_adef0c268dde9d7141995af9c26650ed8}\label{colors_8h_adef0c268dde9d7141995af9c26650ed8} 
+\index{colors.h@{colors.h}!F\_WHITE@{F\_WHITE}}
+\index{F\_WHITE@{F\_WHITE}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{F\_WHITE}{F\_WHITE}}
+{\footnotesize\ttfamily \#define F\+\_\+\+WHITE~"{}\textbackslash{}033\mbox{[}37m"{}}
+
+Texte Blanc \Hypertarget{colors_8h_aecb7646e530924042cb9547210d5e806}\label{colors_8h_aecb7646e530924042cb9547210d5e806} 
+\index{colors.h@{colors.h}!F\_YELLOW@{F\_YELLOW}}
+\index{F\_YELLOW@{F\_YELLOW}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{F\_YELLOW}{F\_YELLOW}}
+{\footnotesize\ttfamily \#define F\+\_\+\+YELLOW~"{}\textbackslash{}033\mbox{[}33m"{}}
+
+Texte Jaune \Hypertarget{colors_8h_ab702106cf3b3e96750b6845ded4e0299}\label{colors_8h_ab702106cf3b3e96750b6845ded4e0299} 
+\index{colors.h@{colors.h}!RESET@{RESET}}
+\index{RESET@{RESET}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{RESET}{RESET}}
+{\footnotesize\ttfamily \#define RESET~"{}\textbackslash{}033\mbox{[}0m"{}}
+
+
+
+Réinitialise tous les attributs (couleurs et styles). 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{colors_8h_a58a65b579421423f4c3cf01f03c5c19a}\label{colors_8h_a58a65b579421423f4c3cf01f03c5c19a} 
+\index{colors.h@{colors.h}!colors@{colors}}
+\index{colors@{colors}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{colors()}{colors()}}
+{\footnotesize\ttfamily void colors (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Change la couleur du texte dans le terminal. 
+
+Réinitialise le style avant d\textquotesingle{}appliquer la nouvelle couleur. 
+\begin{DoxyParams}{Parameters}
+{\em code} & La chaîne de caractères contenant le code ANSI (F\+\_\+\+BLACK, F\+\_\+\+RED, F\+\_\+\+GREEN, F\+\_\+\+YELLOW, F\+\_\+\+BLUE, F\+\_\+\+PURPLE, F\+\_\+\+CYAN, F\+\_\+\+WHITE) ou RESET pour defaut. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{colors_8h_ab1b0cc37f2041a1bdfd00690d80de6e1}\label{colors_8h_ab1b0cc37f2041a1bdfd00690d80de6e1} 
+\index{colors.h@{colors.h}!set\_style@{set\_style}}
+\index{set\_style@{set\_style}!colors.h@{colors.h}}
+\doxysubsubsection{\texorpdfstring{set\_style()}{set\_style()}}
+{\footnotesize\ttfamily void set\+\_\+style (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{bg,  }\item[{int}]{bold }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Configure le style complet du terminal en une seule commande. 
+
+Réinitialise le style avant d\textquotesingle{}appliquer les nouveaux paramètres.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Code couleur du texte (F\+\_\+\+BLACK, F\+\_\+\+RED, F\+\_\+\+GREEN, F\+\_\+\+YELLOW, F\+\_\+\+BLUE, F\+\_\+\+PURPLE, F\+\_\+\+CYAN, F\+\_\+\+WHITE) ou RESET pour defaut. \\
+\hline
+{\em bg} & Code couleur de fond (B\+\_\+\+BLACK, B\+\_\+\+RED, B\+\_\+\+GREEN, B\+\_\+\+YELLOW, B\+\_\+\+BLUE, B\+\_\+\+PURPLE, B\+\_\+\+CYAN, B\+\_\+\+WHITE) ou RESET pour defaut. \\
+\hline
+{\em bold} & 1 pour activer le gras, 0 pour le style normal. \\
+\hline
+\end{DoxyParams}

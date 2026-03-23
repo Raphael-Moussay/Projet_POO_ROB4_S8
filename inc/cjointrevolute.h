@@ -1,5 +1,11 @@
 #pragma once
-#include "../inc/inc.h"
+
+#include "cjoint.h"
+
+#include <cmath>
+#include <iostream>
+#include <memory>
+#include <string>
 
 
 class CJointRevolute : public CJoint{

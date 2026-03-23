@@ -1,5 +1,11 @@
 #pragma once
-#include "../inc/inc.h"
+
+#include "cjoint.h"
+
+#include <cmath>
+#include <iostream>
+#include <memory>
+#include <string>
 
 class CJointPrismatic : public CJoint{
     public:
@@ -17,4 +23,3 @@ class CJointPrismatic : public CJoint{
         virtual std::string getTypeName() const { return "Prismatic"; };
         virtual std::unique_ptr<CJoint> clone() const { return std::make_unique<CJointPrismatic>(*this); };
 };
-

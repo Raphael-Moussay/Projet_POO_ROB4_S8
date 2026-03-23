@@ -1,7 +1,10 @@
 #pragma once
-#include <string>
-#include <iostream>
+
+#include <cmath>
 #include <memory>
+#include <stdexcept>
+#include <string>
+
 #include <eigen3/Eigen/Dense>
 
 

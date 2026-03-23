@@ -1,0 +1,46 @@
+\doxysection{colors.\+h}
+\hypertarget{colors_8h_source}{}\label{colors_8h_source}\index{inc/colors.h@{inc/colors.h}}
+\mbox{\hyperlink{colors_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ COLORS\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ COLORS\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ RESET\ \ \ \ \ \ \ "{}\(\backslash\)033[0m"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ BOLD\ \ \ \ \ \ \ \ "{}\(\backslash\)033[1m"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ F\_BLACK\ \ \ \ \ "{}\(\backslash\)033[30m"{}\ }}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ F\_RED\ \ \ \ \ \ \ "{}\(\backslash\)033[31m"{}\ }}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ F\_GREEN\ \ \ \ \ "{}\(\backslash\)033[32m"{}\ }}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ F\_YELLOW\ \ \ \ "{}\(\backslash\)033[33m"{}\ }}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ F\_BLUE\ \ \ \ \ \ "{}\(\backslash\)033[34m"{}\ }}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ F\_PURPLE\ \ \ \ "{}\(\backslash\)033[35m"{}\ }}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ F\_CYAN\ \ \ \ \ \ "{}\(\backslash\)033[36m"{}\ }}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ F\_WHITE\ \ \ \ \ "{}\(\backslash\)033[37m"{}\ }}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ B\_BLACK\ \ \ \ \ "{}\(\backslash\)033[40m"{}\ }}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ B\_RED\ \ \ \ \ \ \ "{}\(\backslash\)033[41m"{}\ }}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ B\_GREEN\ \ \ \ \ "{}\(\backslash\)033[42m"{}\ }}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ B\_YELLOW\ \ \ \ "{}\(\backslash\)033[43m"{}\ }}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ B\_BLUE\ \ \ \ \ \ "{}\(\backslash\)033[44m"{}\ }}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ B\_PURPLE\ \ \ \ "{}\(\backslash\)033[45m"{}\ }}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ B\_CYAN\ \ \ \ \ \ "{}\(\backslash\)033[46m"{}\ }}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ B\_WHITE\ \ \ \ \ "{}\(\backslash\)033[47m"{}\ }}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{colors_8h_a58a65b579421423f4c3cf01f03c5c19a}{colors}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *code)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (code)\ printf(\textcolor{stringliteral}{"{}\%s"{}},\ code);}
+\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{colors_8h_ab1b0cc37f2041a1bdfd00690d80de6e1}{set\_style}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *text,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *bg,\ \textcolor{keywordtype}{int}\ bold)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{colors_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (bold)\ printf(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{colors_8h_a26cdbb1a00213c810caccf21cd33a631}{BOLD}});}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (text)\ printf(\textcolor{stringliteral}{"{}\%s"{}},\ text);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (bg)\ \ \ printf(\textcolor{stringliteral}{"{}\%s"{}},\ bg);}
+\DoxyCodeLine{00065\ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COLORS\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
