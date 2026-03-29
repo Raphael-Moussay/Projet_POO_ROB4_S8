@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CBRAS_H
+#define CBRAS_H
 
 #include "cjoint.h"
 
@@ -13,6 +14,11 @@
 
 #include <eigen3/Eigen/Dense>
 
+/**
+ * @brief Classe représentant un bras robotique composé de plusieurs joints.
+ * 
+ * Cette classe gère une collection de joints (CJoint) et permet de calculer la cinématique directe du bras, d'afficher les informations sur les joints, et de manipuler les configurations des joints.
+ */
 class CBras{
     private:
         std::vector<std::unique_ptr<CJoint>> tab_joints_;
@@ -27,6 +33,11 @@ class CBras{
             tab_joints_.push_back(std::move(joint));
         }
 
+        /**
+         * @brief Calcule la matrice de transformation homogène du bras en fonction des configurations des joints.
+         * @return La matrice de transformation homogène.
+         * La transformation est calculée en multipliant les transformations de chaque joint dans l'ordre.
+         */
         Eigen::Matrix4d computeFK()
         {
             Eigen::Matrix4d T = Eigen::Matrix4d::Identity();
@@ -139,3 +150,6 @@ class CBras{
             return q_tab;
         }
 };
+
+
+#endif // CBRAS_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CVECTEUR_H
+#define CVECTEUR_H
 
 #include <array>
 #include <cstddef>
@@ -7,6 +8,11 @@
 
 template <typename T, std::size_t N>
 
+/**
+ * @brief Classe représentant un vecteur de taille fixe N avec des éléments de type T.
+ * 
+ * Cette classe implémente des opérations élémentaires telles que l'addition, la soustraction, la multiplication par un scalaire, le produit scalaire et la norme. Elle fournit également une méthode pour convertir le vecteur en une matrice Eigen sans copie.
+ */
 class CVecteur {
     private:
         std::array<T, N> stockage_;
@@ -93,3 +99,5 @@ class CVecteur {
             
         }
 };
+
+#endif // CVECTEUR_H

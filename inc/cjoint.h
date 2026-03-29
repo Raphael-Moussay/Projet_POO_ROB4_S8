@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CJOINT_H
+#define CJOINT_H
 
 #include <cmath>
 #include <memory>
@@ -56,3 +57,5 @@ class CJoint{
         virtual std::string getTypeName() const = 0;
         virtual std::unique_ptr<CJoint> clone() const = 0;
 };
+
+#endif // CJOINT_H

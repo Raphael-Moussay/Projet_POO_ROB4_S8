@@ -5,6 +5,7 @@
 #include "../inc/test_bras.h"
 #include "../inc/test_joints.h"
 #include "../inc/test_cvecteur.h"
+#include "../inc/exo4.h"
 
 #include <cmath>
 #include <iostream>
@@ -71,12 +72,12 @@ int main() {
                             break;
                         }
                     }
-                } while (choix != 'q');
+                } while (choix != 'q' && choix != '2' && choix != '3');
                 break;
             }
             case '4':
             {
-                //exo4();
+                exo4();
                 break;
             }
             case 'q':
