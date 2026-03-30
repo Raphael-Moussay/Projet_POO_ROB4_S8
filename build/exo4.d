@@ -254,7 +254,13 @@ build/exo4.o: src/exo4.cpp src/../inc/cjoint.h src/../inc/colors.h \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/kinematics.txx \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/geometry.hpp \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/geometry.hxx \
- /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/geometry.txx
+ /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/geometry.txx \
+ /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/frames.hpp \
+ /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/frames.hxx \
+ /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/jacobian.hpp \
+ /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/jacobian.hxx \
+ /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/jacobian.txx \
+ /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/frames.txx
 src/../inc/cjoint.h:
 src/../inc/colors.h:
 src/../inc/cjointprismatic.h:
@@ -516,3 +522,9 @@ src/../inc/colors.h:
 /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/geometry.hpp:
 /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/geometry.hxx:
 /opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/geometry.txx:
+/opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/frames.hpp:
+/opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/frames.hxx:
+/opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/jacobian.hpp:
+/opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/jacobian.hxx:
+/opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/jacobian.txx:
+/opt/openrobots/lib/pkgconfig/../../include/pinocchio/algorithm/frames.txx:

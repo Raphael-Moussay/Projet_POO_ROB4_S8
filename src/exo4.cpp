@@ -15,7 +15,7 @@
 
 
 
-void exo4_1()
+void exo4()
 {
     colors(F_YELLOW);
     std::cout << "====================================================" << std::endl;
@@ -53,7 +53,6 @@ void exo4_1()
         colors(RESET);
         Eigen::Matrix4d T = bras.computeFK();
         std::cout << "Position n°" << (q(0) + M_PI/2) / (M_PI/8) + 1 << " de l'effecteur : \n" << T.block<3,1>(0,3).transpose() << std::endl;
-        //.block<3,1>(0,3).transpose()
     }
     colors(F_YELLOW);
     std::cout << "====================================================\n";
@@ -61,10 +60,6 @@ void exo4_1()
     std::cout << "====================================================\n";
     colors(RESET);
     std:: cout << bras;
-}
-
-void exo4_2()
-{
     colors(F_YELLOW);
     std::cout << "====================================================\n";
     std::cout << "Chargement de l'UR5...\n";
@@ -83,20 +78,18 @@ void exo4_2()
 
     const pinocchio::JointIndex wrist3_joint_id = model.getJointId("wrist_3_joint");
     const pinocchio::FrameIndex tool0_frame_id = model.getFrameId("tool0");
+    Eigen::Matrix4d T_pin_wrist3 = data.oMi[wrist3_joint_id].toHomogeneousMatrix();
+    Eigen::Matrix4d T_pin_tool0 = data.oMf[tool0_frame_id].toHomogeneousMatrix();
 
-    Eigen::Matrix4d T_UR5_Pinocchio_wrist3 = data.oMi[wrist3_joint_id].toHomogeneousMatrix();
-    Eigen::Matrix4d T_UR5_Pinocchio_tool0 = data.oMf[tool0_frame_id].toHomogeneousMatrix();
-    std::cout << "Position wrist_3 (Pinocchio) : \n"
-              << T_UR5_Pinocchio_wrist3.block<3,1>(0,3).transpose() << std::endl;
-    std::cout << "Position tool0 (Pinocchio)   : \n"
-              << T_UR5_Pinocchio_tool0.block<3,1>(0,3).transpose() << std::endl;
+    std::cout << "Position wrist_3 (UR5 Pinocchio) : \n" << T_pin_wrist3.block<3,1>(0,3).transpose() << std::endl;
+    std::cout << "Position tool0  (UR5 Pinocchio) : \n" << T_pin_tool0.block<3,1>(0,3).transpose() << std::endl;
 
     colors(F_YELLOW);
     std::cout << "====================================================\n";
     std::cout << "Création du bras UR5..." << std::endl;
     std::cout << "====================================================\n";
     colors(RESET);
-
+    
     CBras UR5_bras;
     UR5_bras.addJoint(std::make_unique<CJointRevoluteWithAxe>(
         -2.0 * M_PI, 2.0 * M_PI, q(0),
@@ -133,8 +126,7 @@ void exo4_2()
         Eigen::Vector3d(0.0, 1.0, 0.0),
         Eigen::Vector3d(0.0, 0.0, 0.09465),
         Eigen::Vector3d(0.0, 0.0, 0.0))); // wrist_3_joint
-
-    const Eigen::Matrix4d T_UR5_bras_wrist3 = UR5_bras.computeFK();
+    const Eigen::Matrix4d T_bras_wrist3 = UR5_bras.computeFK();
 
     Eigen::Matrix4d T_wrist3_to_tool0 = Eigen::Matrix4d::Identity();
     T_wrist3_to_tool0.block<3,3>(0,0) =
@@ -143,17 +135,21 @@ void exo4_2()
          Eigen::AngleAxisd(-1.57079632679, Eigen::Vector3d::UnitX())).toRotationMatrix();
     T_wrist3_to_tool0.block<3,1>(0,3) = Eigen::Vector3d(0.0, 0.0823, 0.0);
 
-    const Eigen::Matrix4d T_UR5_bras_tool0 = T_UR5_bras_wrist3 * T_wrist3_to_tool0;
+    const Eigen::Matrix4d T_bras_tool0 = T_bras_wrist3 * T_wrist3_to_tool0;
 
-    std::cout << "Position wrist_3 (bras maison) : "
-              << T_UR5_bras_wrist3.block<3,1>(0,3).transpose() << std::endl;
-    std::cout << "Position tool0 (bras maison)   : "
-              << T_UR5_bras_tool0.block<3,1>(0,3).transpose() << std::endl;
-
-    std::cout << "Erreur ||dp_wrist3|| = "
-              << (T_UR5_bras_wrist3.block<3,1>(0,3) - T_UR5_Pinocchio_wrist3.block<3,1>(0,3)).norm()
-              << std::endl;
-    std::cout << "Erreur ||dp_tool0||  = "
-              << (T_UR5_bras_tool0.block<3,1>(0,3) - T_UR5_Pinocchio_tool0.block<3,1>(0,3)).norm()
-              << std::endl;
+    std::cout << "Position wrist_3 (bras UR5)      : \n" << T_bras_wrist3.block<3,1>(0,3).transpose() << std::endl;
+    std::cout << "Position tool0  (bras UR5)      : \n" << T_bras_tool0.block<3,1>(0,3).transpose() << std::endl;
+    
+    std::cout << "\nErreur de translation:" << std::endl;
+    std::cout << "  ||dp_wrist3|| = "
+              << (T_bras_wrist3.block<3,1>(0,3) - T_pin_wrist3.block<3,1>(0,3)).norm() << std::endl;
+    std::cout << "  ||dp_tool0||  = "
+              << (T_bras_tool0.block<3,1>(0,3) - T_pin_tool0.block<3,1>(0,3)).norm() << std::endl;
+    
+    std::cout << "\nErreur de Frobenius (matrice 4x4):" << std::endl;
+    std::cout << "  ||T_wrist3_bras - T_wrist3_pin||_F = "
+              << (T_bras_wrist3 - T_pin_wrist3).norm() << std::endl;
+    std::cout << "  ||T_tool0_bras - T_tool0_pin||_F   = "
+              << (T_bras_tool0 - T_pin_tool0).norm() << std::endl;
+    colors(RESET);
 }
