@@ -9,6 +9,9 @@ MOUSSAY Raphaël et ORIEUX Jean
 - Un compilateur C++ compatible C++17 (ex: `g++`).
 - Outils : `ibeigen3-dev` • `pinocchio (pip install pin)` • `libgtest-dev `• `valgrind`
 - `make`.
+- Installer pinocchio en suivant les étapes suivantes : [https://stack-of-tasks.github.io/pinocchio/download.html](https://stack-of-tasks.github.io/pinocchio/download.html)
+
+## Compilation et exécution
 
 Ce TP est structuré avec :
 
@@ -17,16 +20,13 @@ Ce TP est structuré avec :
 - Les objets dans `build/`
 - Le binaire dans `bin/`
 
-## Compilation et exécution
-
-Depuis le dossier ???????????:
+Depuis le dossier parent :
 
 ### Nécessaire :
 
 ```bash
 make #Compiler
 ./bin/run #Executer
-export PKG_CONFIG_PATH="$CONDA_PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH" #Pour Pinnochio
 ```
 
 ### Utile :
@@ -63,4 +63,18 @@ hpp2plantuml -i "inc/*.h" -o projet.puml
 
 ## **Visualisation**
 
-Installer l'extension PlantUML sur vscode pour visualiser le fichier ou utiliser un autre outil.
+Installer l'extension Plan UML sur vscode pour visualiser le fichier `projet.puml` ou utiliser un autre outil.
+
+# Doxygen
+
+## Génerer les fichiers nécessaires :
+
+Dans le terminal : 
+
+```bash
+doxygen
+```
+
+## Visualiser : 
+
+Ouvrir le fichier `html/index.html` sur un navigateur pour voir la documentation dynamique
