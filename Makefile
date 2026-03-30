@@ -9,6 +9,7 @@ PKGS = pinocchio eigen3
 PKG_CFLAGS = $(shell pkg-config --cflags $(PKGS))
 PKG_LIBS = $(shell pkg-config --libs $(PKGS))
 
+
 # Dossiers
 SRC_DIR = ./src
 INC_DIR = ./inc

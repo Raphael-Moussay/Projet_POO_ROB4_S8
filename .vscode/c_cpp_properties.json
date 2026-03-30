@@ -6,18 +6,13 @@
       "intelliSenseMode": "linux-gcc-x64",
       "cppStandard": "c++17",
       "includePath": [
-        "${workspaceFolder}/inc",
-        "${env:CONDA_PREFIX}/include",
-        "${env:CONDA_PREFIX}/include/eigen3"
+        "${workspaceFolder}/inc"
       ],
       "browse": {
         "path": [
-          "${workspaceFolder}/inc",
-          "${env:CONDA_PREFIX}/include",
-          "${env:CONDA_PREFIX}/include/eigen3"
+          "${workspaceFolder}/inc"
         ]
-      },
-      "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+      }
     }
   ],
   "version": 4

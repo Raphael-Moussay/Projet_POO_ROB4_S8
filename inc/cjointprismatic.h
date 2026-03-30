@@ -22,7 +22,7 @@ class CJointPrismatic : public CJoint{
          * @brief Calcule la matrice de transformation homogène associée à la configuration prismatique.
          */
         virtual Eigen::Matrix4d getTransform() const override{
-            std::cout << "Prismatic transform from derivate class" << std::endl;
+            // std::cout << "Prismatic transform from derivate class" << std::endl;
             Eigen::Matrix4d transform = Eigen::Matrix4d::Identity();
             transform(2,3) = *q_;
             return transform;

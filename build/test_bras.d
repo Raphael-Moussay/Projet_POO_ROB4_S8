@@ -1,5 +1,5 @@
 build/test_bras.o: src/test_bras.cpp src/../inc/cbras.h \
- src/../inc/cjoint.h src/../inc/cjointprismatic.h \
+ src/../inc/cjoint.h src/../inc/colors.h src/../inc/cjointprismatic.h \
  src/../inc/cjointrevolute.h src/../inc/test_bras.h \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/spatial/se3.hpp \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/spatial/fwd.hpp \
@@ -128,6 +128,7 @@ build/test_bras.o: src/test_bras.cpp src/../inc/cbras.h \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/spatial/cartesian-axis.hpp
 src/../inc/cbras.h:
 src/../inc/cjoint.h:
+src/../inc/colors.h:
 src/../inc/cjointprismatic.h:
 src/../inc/cjointrevolute.h:
 src/../inc/test_bras.h:

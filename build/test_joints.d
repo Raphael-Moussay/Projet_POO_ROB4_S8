@@ -1,5 +1,6 @@
 build/test_joints.o: src/test_joints.cpp src/../inc/cjointprismatic.h \
- src/../inc/cjoint.h src/../inc/cjointrevolute.h src/../inc/test_joints.h \
+ src/../inc/cjoint.h src/../inc/colors.h src/../inc/cjointrevolute.h \
+ src/../inc/test_joints.h \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/spatial/se3.hpp \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/spatial/fwd.hpp \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/fwd.hpp \
@@ -127,6 +128,7 @@ build/test_joints.o: src/test_joints.cpp src/../inc/cjointprismatic.h \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/spatial/cartesian-axis.hpp
 src/../inc/cjointprismatic.h:
 src/../inc/cjoint.h:
+src/../inc/colors.h:
 src/../inc/cjointrevolute.h:
 src/../inc/test_joints.h:
 /opt/openrobots/lib/pkgconfig/../../include/pinocchio/spatial/se3.hpp:

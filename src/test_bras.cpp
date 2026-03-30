@@ -76,10 +76,11 @@ TEST(BrasTest, computeFKOneRevoluteJoint){
     double dx = 0.5;
     bras.addJoint(std::make_unique<CJointRevolute>(-M_PI, M_PI, theta, dx));
 
-    Eigen::Matrix4d expectedTransform = Eigen::Matrix4d::Identity();
-    expectedTransform(0, 3) = dx;
+    Eigen::Matrix4d T = bras.computeFK();
+    Eigen::Vector3d translation = T.block<3, 1>(0, 3);
+    Eigen::Vector3d expectedPosition(dx, 0.0, 0.0);
 
-    EXPECT_TRUE(bras.computeFK().isApprox(expectedTransform, 1e-6));
+    EXPECT_TRUE(translation.isApprox(expectedPosition, 1e-6));
 }
 
 
@@ -118,13 +119,39 @@ TEST(BrasTest, idempotence)
     EXPECT_TRUE(q.isApprox(q_after, 1e-6));
 }
 
+TEST(BrasTest, deep_copy)
+{
+    CBras bras;
+    bras.addJoint(std::make_unique<CJointRevolute>(-M_PI, M_PI, 0.0, 0.5));
+    
+    CBras bras_copy = bras; 
+    bras_copy.addJoint(std::make_unique<CJointPrismatic>(0.0, 100.0, 1.0));
+
+    bras.addJoint(std::make_unique<CJointPrismatic>(0.0, 100.0, 1.0));
+    bras.addJoint(std::make_unique<CJointRevolute>(-M_PI, M_PI, 0.0, 0.5));
+    
+    EXPECT_EQ(bras.getNbJoints(),3);
+    EXPECT_EQ(bras_copy.getNbJoints(), 2);
+}
+
+TEST(BrasTest,move)
+{
+    CBras bras;
+    bras.addJoint(std::make_unique<CJointRevolute>(-M_PI, M_PI, 0.0, 0.5));
+    
+    CBras bras_moved = std::move(bras); 
+
+    EXPECT_EQ(bras.getNbJoints(),0); 
+    EXPECT_EQ(bras_moved.getNbJoints(),1);
+}
+
 void exo3_2() 
 {
     int argc = 1;
     char arg0[] = "run";
     char* argv[] = {arg0, nullptr};
     ::testing::InitGoogleTest(&argc, argv);
-    ::testing::GTEST_FLAG(filter) = "BrasTest.idempotence";
+    ::testing::GTEST_FLAG(filter) = "BrasTest.idempotence:BrasTest.deep_copy:BrasTest.move";
     std::ignore = RUN_ALL_TESTS();
 }
 

@@ -7,6 +7,7 @@
 #include <string>
 
 #include <eigen3/Eigen/Dense>
+#include "colors.h"
 
 
 class CJoint{

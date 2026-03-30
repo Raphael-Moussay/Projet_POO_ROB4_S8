@@ -39,7 +39,7 @@ class CJointRevolute : public CJoint{
          * @brief Calcule la matrice de transformation homogène associée à la configuration revolution.
          */
         virtual Eigen::Matrix4d getTransform() const override{
-            std::cout << "Revolute transform from derivate class" << std::endl;
+            // std::cout << "Revolute transform from derivate class" << std::endl;
             Eigen::Matrix4d transform = Eigen::Matrix4d::Identity();
             double theta = *q_;
             double c = cos(theta);

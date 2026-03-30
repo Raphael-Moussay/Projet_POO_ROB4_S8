@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <memory>
 #include <ostream>
+#include <iostream>
 #include <stdexcept>
 #include <string>
 #include <utility>
@@ -41,8 +42,9 @@ class CBras{
         Eigen::Matrix4d computeFK()
         {
             Eigen::Matrix4d T = Eigen::Matrix4d::Identity();
-            for (int i = 0; i < static_cast<int>(tab_joints_.size()); i++)
-                T = tab_joints_[i]->getTransform() * T;
+            for (int i = 0; i < static_cast<int>(tab_joints_.size()); i++){
+                T = T*tab_joints_[i]->getTransform();
+            }
             return T;            
         }
         
