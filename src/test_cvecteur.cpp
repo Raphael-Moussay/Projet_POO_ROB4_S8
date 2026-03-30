@@ -86,7 +86,7 @@ TEST(CVecteurTest, ToEigenConversion) {
 	EXPECT_NEAR(e(2), 3.5, 1e-12);
 }
 
-void exo3_3() 
+void test_cvecteur() 
 {
     int argc = 1;
     char arg0[] = "run";

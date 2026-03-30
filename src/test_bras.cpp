@@ -95,16 +95,6 @@ TEST(BrasTest, getJointOutOfRange){
 }
 
 
-void exo2() 
-{
-    int argc = 1;
-    char arg0[] = "run";
-    char* argv[] = {arg0, nullptr};
-    ::testing::InitGoogleTest(&argc, argv);
-    ::testing::GTEST_FLAG(filter) = "BrasTest.CompareOperator:BrasTest.computeFK:BrasTest.computeFKOneRevoluteJoint:BrasTest.getJointOutOfRange:BrasTest.testToHomeneousMatrix";
-    std::ignore = RUN_ALL_TESTS();
-}
-
 //test vérifiant l’idempotence : setQ(getQ()) ne modifie pas l’état du bras.
 TEST(BrasTest, idempotence)
 {
@@ -145,13 +135,13 @@ TEST(BrasTest,move)
     EXPECT_EQ(bras_moved.getNbJoints(),1);
 }
 
-void exo3_2() 
+void test_bras() 
 {
     int argc = 1;
     char arg0[] = "run";
     char* argv[] = {arg0, nullptr};
     ::testing::InitGoogleTest(&argc, argv);
-    ::testing::GTEST_FLAG(filter) = "BrasTest.idempotence:BrasTest.deep_copy:BrasTest.move";
+    ::testing::GTEST_FLAG(filter) = "BrasTest.idempotence:BrasTest.deep_copy:BrasTest.move:BrasTest.getJointOutOfRange:BrasTest.computeFKOneRevoluteJoint:BrasTest.computeFK:BrasTest.testToHomeneousMatrix:BrasTest.CompareOperator";
     std::ignore = RUN_ALL_TESTS();
 }
 

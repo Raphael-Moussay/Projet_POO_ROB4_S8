@@ -44,7 +44,7 @@ TEST(JointsTest, testJointLimits) {
 }
 
 
-void exo1() 
+void test_joints() 
 {
     int argc = 1;
     char arg0[] = "run";
