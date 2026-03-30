@@ -3,103 +3,117 @@
 \mbox{\hyperlink{cbras_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../inc/inc.h"{}}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cjoint_8h}{cjoint.h}}"{}}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCBras}{CBras}}\{}
-\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<CJoint>>\ tab\_joints\_;}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras_ad1e8e67b4767e9492d93149ade3fa0e8}{CBras}}()\{\};}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras_abf569f5f657eb96920654fc312e13203}{\string~CBras}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras_a35cdb765a0882b5cae8c5c3033d87421}{CBras}}(\mbox{\hyperlink{classCBras}{CBras}}\&\&\ other)\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras}{CBras}}\&\ \mbox{\hyperlink{classCBras_aae1cee73c00576f2eb68f16e1a43c849}{operator=}}(\mbox{\hyperlink{classCBras}{CBras}}\&\&\ other)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCBras_a81462772073ae08fc7732a3445a52e05}{addJoint}}(std::unique\_ptr<CJoint>\ joint)\{}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ tab\_joints\_.push\_back(std::move(joint));}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ \mbox{\hyperlink{classCBras_ae8940c586425e6c4d34486e9e9235e58}{computeFK}}()}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ T\ =\ Eigen::Matrix4d::Identity();}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ static\_cast<int>(tab\_joints\_.size());\ i++)}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ =\ tab\_joints\_[i]-\/>getTransform()\ *\ T;}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ T;\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCBras_abc2ed66d35cab2ae3e44fb9655434d95}{getNbJoints}}()\{}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tab\_joints\_.size();}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCJoint}{CJoint}}\&\ \mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(\textcolor{keywordtype}{size\_t}\ i)\{}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(i\ >=\ tab\_joints\_.size())\{}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Joint\ index\ out\ of\ range"{}});}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *tab\_joints\_[i];}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//return\ *tab\_joints\_.at(i);}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <eigen3/Eigen/Dense>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCBras}{CBras}}\{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<CJoint>>\ tab\_joints\_;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras_ad1e8e67b4767e9492d93149ade3fa0e8}{CBras}}()\{\};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras_abf569f5f657eb96920654fc312e13203}{\string~CBras}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras_a35cdb765a0882b5cae8c5c3033d87421}{CBras}}(\mbox{\hyperlink{classCBras}{CBras}}\&\&\ other)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras}{CBras}}\&\ \mbox{\hyperlink{classCBras_aae1cee73c00576f2eb68f16e1a43c849}{operator=}}(\mbox{\hyperlink{classCBras}{CBras}}\&\&\ other)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCBras_a81462772073ae08fc7732a3445a52e05}{addJoint}}(std::unique\_ptr<CJoint>\ joint)\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ tab\_joints\_.push\_back(std::move(joint));}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ \mbox{\hyperlink{classCBras_ae8940c586425e6c4d34486e9e9235e58}{computeFK}}()}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ T\ =\ Eigen::Matrix4d::Identity();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ static\_cast<int>(tab\_joints\_.size());\ i++)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ =\ tab\_joints\_[i]-\/>getTransform()\ *\ T;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ T;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCBras_abc2ed66d35cab2ae3e44fb9655434d95}{getNbJoints}}()\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tab\_joints\_.size();}
 \DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{classCBras_a7ddb377b964e51f6db6b19f61d74a4bd}{operator<<}}(std::ostream\&\ os,\ \mbox{\hyperlink{classCBras}{CBras}}\&\ bras)\{}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nbJoints\ =\ bras.\mbox{\hyperlink{classCBras_abc2ed66d35cab2ae3e44fb9655434d95}{getNbJoints}}();}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Bras\ ["{}}\ <<\ nbJoints\ <<\ \textcolor{stringliteral}{"{}\ DDL]"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =0;\ i<(size\_t)nbJoints;\ i++)\{}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ ["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\ "{}}\ ;}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ type\_i\ =\ bras.\mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(i).\mbox{\hyperlink{classCJoint_a1e0eab95eccfd71be5a6718f9de3577c}{getTypeName}}();}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!type\_i.compare(\textcolor{stringliteral}{"{}Revolute"{}}))\{}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ \textcolor{stringliteral}{"{}Revolute\ \ q\ =\ "{}}\ <<\ bras.\mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(i).\mbox{\hyperlink{classCJoint_ab068679eec5d051104f0f0bc814aebed}{getQ}}()\ <<\ \textcolor{stringliteral}{"{}\ rad\ \ \ "{}}\ ;}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ \textcolor{stringliteral}{"{}Prismatic\ q\ =\ "{}}<<bras.\mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(i).\mbox{\hyperlink{classCJoint_ab068679eec5d051104f0f0bc814aebed}{getQ}}()\ \ \ <<\ \textcolor{stringliteral}{"{}\ m\ \ \ \ \ "{}}\ ;}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ \textcolor{stringliteral}{"{}bornes=["{}}<<bras.\mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(i).\mbox{\hyperlink{classCJoint_ac68314cc553d232d4f173fb9a2fe2397}{getQMin}}()<<\textcolor{stringliteral}{"{},\ "{}}<<bras.\mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(i).\mbox{\hyperlink{classCJoint_a9108d0abbf37b69b1c8eec6119e35479}{getQMax}}()<<\textcolor{stringliteral}{"{}]"{}}<<std::endl;}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras_a508287e9f0e60782588d85c8100bb8e5}{CBras}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCBras}{CBras}}\&\ other)\{}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ other.tab\_joints\_.size();\ i++)\{}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tab\_joints\_.push\_back(other.tab\_joints\_[i]-\/>clone());}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCBras_a1a17c0f4d68c1507a977300e099483ef}{swap}}(\mbox{\hyperlink{classCBras}{CBras}}\&\ first,\ \mbox{\hyperlink{classCBras}{CBras}}\&\ second)}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(first.tab\_joints\_,\ second.tab\_joints\_);}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras}{CBras}}\&\ \mbox{\hyperlink{classCBras_a74365b3397ae3e0af9931dff00392c2c}{operator=}}(\mbox{\hyperlink{classCBras}{CBras}}\ other)}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras}{CBras}}\ temp(other);}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras_a1a17c0f4d68c1507a977300e099483ef}{swap}}(*\textcolor{keyword}{this},\ temp);}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ Eigen::VectorXd\ \mbox{\hyperlink{classCBras_a52f43a05a87133802d5bff286786fb68}{getQ}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::VectorXd\ q(tab\_joints\_.size());}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ tab\_joints\_.size();\ i++)}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q(i)\ =\ tab\_joints\_[i]-\/>getQ();}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ q;}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCBras_a1dcb8b2e655e38b3907dd3eb2aee2f7a}{setQ}}(\textcolor{keyword}{const}\ Eigen::VectorXd\&\ q)\{}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(q.size()\ !=\ \mbox{\hyperlink{classCBras_abc2ed66d35cab2ae3e44fb9655434d95}{getNbJoints}}())\ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}q\ size\ doesn't\ match\ with\ number\ of\ joints"{}});}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i=0;\ i\ <\ tab\_joints\_.size();\ i++)}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tab\_joints\_[i]-\/>setQ(q(i));}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ Eigen::VectorXd\ \mbox{\hyperlink{classCBras_ab794339de6725bc708990f8d0d339d9e}{randomQ}}()\textcolor{keyword}{\ const}\{}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i=0;\ i\ <\ tab\_joints\_.size();\ i++)}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ min\ =\ \ tab\_joints\_[i]-\/>getQMin();}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ max\ =\ \ tab\_joints\_[i]-\/>getQMax();}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ q\ =\ min\ *\ ((double)\ rand()\ /\ (double)\ RAND\_MAX)\ -\/\ max;}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tab\_joints\_[i]-\/>setQ(q);}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00127\ \};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCJoint}{CJoint}}\&\ \mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(\textcolor{keywordtype}{size\_t}\ i)\{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(i\ >=\ tab\_joints\_.size())\{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Joint\ index\ out\ of\ range"{}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *tab\_joints\_[i];}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//return\ *tab\_joints\_.at(i);}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{classCBras_a7ddb377b964e51f6db6b19f61d74a4bd}{operator<<}}(std::ostream\&\ os,\ \mbox{\hyperlink{classCBras}{CBras}}\&\ bras)\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nbJoints\ =\ bras.\mbox{\hyperlink{classCBras_abc2ed66d35cab2ae3e44fb9655434d95}{getNbJoints}}();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Bras\ ["{}}\ <<\ nbJoints\ <<\ \textcolor{stringliteral}{"{}\ DDL]"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =0;\ i<(size\_t)nbJoints;\ i++)\{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ ["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\ "{}}\ ;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ type\_i\ =\ bras.\mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(i).\mbox{\hyperlink{classCJoint_a1e0eab95eccfd71be5a6718f9de3577c}{getTypeName}}();}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!type\_i.compare(\textcolor{stringliteral}{"{}Revolute"{}}))\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ std::fixed\ <<\ std::setprecision(3)\ <<\ \textcolor{stringliteral}{"{}Revolute\ \ q\ =\ "{}}\ <<\ bras.\mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(i).\mbox{\hyperlink{classCJoint_ab068679eec5d051104f0f0bc814aebed}{getQ}}()\ <<\ \textcolor{stringliteral}{"{}\ rad\ \ \ "{}}\ ;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ std::fixed\ <<\ std::setprecision(3)\ <<\ \textcolor{stringliteral}{"{}Prismatic\ q\ =\ "{}}<<bras.\mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(i).\mbox{\hyperlink{classCJoint_ab068679eec5d051104f0f0bc814aebed}{getQ}}()\ \ \ <<\ \textcolor{stringliteral}{"{}\ m\ \ \ \ \ "{}}\ ;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ std::fixed\ <<\ std::setprecision(3)\ <<\ \textcolor{stringliteral}{"{}bornes=["{}}<<bras.\mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(i).\mbox{\hyperlink{classCJoint_ac68314cc553d232d4f173fb9a2fe2397}{getQMin}}()<<\textcolor{stringliteral}{"{},\ "{}}<<bras.\mbox{\hyperlink{classCBras_aafd87f8f3e5bb27e282f67388e1fe9f8}{getJoint}}(i).\mbox{\hyperlink{classCJoint_a9108d0abbf37b69b1c8eec6119e35479}{getQMax}}()<<\textcolor{stringliteral}{"{}]"{}}<<std::endl;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras_a508287e9f0e60782588d85c8100bb8e5}{CBras}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCBras}{CBras}}\&\ other)\{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ other.tab\_joints\_.size();\ i++)\{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tab\_joints\_.push\_back(other.tab\_joints\_[i]-\/>clone());}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCBras_a1a17c0f4d68c1507a977300e099483ef}{swap}}(\mbox{\hyperlink{classCBras}{CBras}}\&\ first,\ \mbox{\hyperlink{classCBras}{CBras}}\&\ second)}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(first.tab\_joints\_,\ second.tab\_joints\_);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras}{CBras}}\&\ \mbox{\hyperlink{classCBras_a74365b3397ae3e0af9931dff00392c2c}{operator=}}(\mbox{\hyperlink{classCBras}{CBras}}\ other)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras}{CBras}}\ temp(other);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCBras_a1a17c0f4d68c1507a977300e099483ef}{swap}}(*\textcolor{keyword}{this},\ temp);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ Eigen::VectorXd\ \mbox{\hyperlink{classCBras_a52f43a05a87133802d5bff286786fb68}{getQ}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::VectorXd\ q(tab\_joints\_.size());}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ tab\_joints\_.size();\ i++)}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q(i)\ =\ tab\_joints\_[i]-\/>getQ();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ q;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCBras_a1dcb8b2e655e38b3907dd3eb2aee2f7a}{setQ}}(\textcolor{keyword}{const}\ Eigen::VectorXd\&\ q)\{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(q.size()\ !=\ \mbox{\hyperlink{classCBras_abc2ed66d35cab2ae3e44fb9655434d95}{getNbJoints}}())\ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}q\ size\ doesn't\ match\ with\ number\ of\ joints"{}});}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i=0;\ i\ <\ tab\_joints\_.size();\ i++)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tab\_joints\_[i]-\/>setQ(q(i));}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ Eigen::VectorXd\ \mbox{\hyperlink{classCBras_ab794339de6725bc708990f8d0d339d9e}{randomQ}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::VectorXd\ q\_tab(tab\_joints\_.size());}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i=0;\ i\ <\ tab\_joints\_.size();\ i++)}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ min\ =\ \ tab\_joints\_[i]-\/>getQMin();}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ max\ =\ \ tab\_joints\_[i]-\/>getQMax();}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ q\ =\ min\ *\ ((double)\ rand()\ /\ (double)\ RAND\_MAX)\ -\/\ max;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tab\_joints\_[i]-\/>setQ(q);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q\_tab(i)\ =\ q;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ q\_tab;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \};}
 
 \end{DoxyCode}

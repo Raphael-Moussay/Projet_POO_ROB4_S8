@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_0',['operator=',['../classCBras.html#aae1cee73c00576f2eb68f16e1a43c849',1,'CBras::operator=(CBras &amp;&amp;other)=default'],['../classCBras.html#a74365b3397ae3e0af9931dff00392c2c',1,'CBras::operator=(CBras other)']]]
+  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]]
 ];

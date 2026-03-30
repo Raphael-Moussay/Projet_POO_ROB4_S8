@@ -3,59 +3,62 @@
 \mbox{\hyperlink{cjoint_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cmath>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <eigen3/Eigen/Dense>}}
-\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCJoint}{CJoint}}\{}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ *\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}},*\mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}},*\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}};}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Constructeur}}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a912eb96f4ddc47f7fa6d82b4a31ffccb}{CJoint}}(\textcolor{keywordtype}{double}\ qMin=-\/M\_PI,\ \textcolor{keywordtype}{double}\ qMax=M\_PI,\textcolor{keywordtype}{double}\ q=0):\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}}(new\ double(q)),\ \mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}}(new\ double(qMin)),\ \mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}}(new\ double(qMax))\ \{}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(*\mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}}\ >\ *\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}})\{}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Lève\ un\ flag\ d'erreur\ =\ stop\ le\ programme,\ q\_,\ qMin\_\ et\ qMax\_\ ne\ sont\ pas\ initialisés}}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}qMin\ must\ be\ less\ than\ or\ equal\ to\ qMax"{}});}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(*\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_\ <\ *qMin\_\ ||\ *q\_\ >}}\ *\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}})\{\ }
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Joint\ angle\ out\ of\ bounds"{}});}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Destructeur}}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCJoint_a08ce9381ae6968eeacfe81dcb5c992b2}{\string~CJoint}}()\{}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}};}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}};}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}};}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Constructeur\ de\ copie}}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0ab69fba8d303a9abe450ec4cb21d5d5}{CJoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCJoint}{CJoint}}\&\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{other}})\{}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(*\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{other}}.q\_);}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(*\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{other}}.qMin\_);}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(*\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{other}}.qMax\_);}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Setters}}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCJoint_a8b4ce28f0f5a680be041dceff56c10ee}{setQ}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q}})}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\ <\ *qMin\_\ ||\ q\ >}}\ *\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}})\{}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Joint\ angle\ out\ of\ bounds"{}});}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}}\ =\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q}};}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCJoint_abf62a8b8a1eee97c8dc7a9cd1848af8c}{setQMin}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMin}})\{\mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMin}});\};}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCJoint_a29211c8a032a04909e7832a78a69c994}{setQMax}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMax}})\{\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMax}});\};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Getters}}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\&\ \mbox{\hyperlink{classCJoint_ab068679eec5d051104f0f0bc814aebed}{getQ}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}};\};}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\&\ \mbox{\hyperlink{classCJoint_ac68314cc553d232d4f173fb9a2fe2397}{getQMin}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}};\};}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\&\ \mbox{\hyperlink{classCJoint_a9108d0abbf37b69b1c8eec6119e35479}{getQMax}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}};\};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ Eigen::Matrix4d\ \mbox{\hyperlink{classCJoint_ad0cfbcd5d9c7e65ff5f4cd1c4d9e3fdd}{getTransform}}()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCJoint_a1e0eab95eccfd71be5a6718f9de3577c}{getTypeName}}()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::unique\_ptr<CJoint>\ \mbox{\hyperlink{classCJoint_adbe01982af9b086c440bd31e4b8d581e}{clone}}()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <eigen3/Eigen/Dense>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCJoint}{CJoint}}\{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ *\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}},*\mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}},*\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Constructeur}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a912eb96f4ddc47f7fa6d82b4a31ffccb}{CJoint}}(\textcolor{keywordtype}{double}\ qMin=-\/M\_PI,\ \textcolor{keywordtype}{double}\ qMax=M\_PI,\textcolor{keywordtype}{double}\ q=0):\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}}(new\ double(q)),\ \mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}}(new\ double(qMin)),\ \mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}}(new\ double(qMax))\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(*\mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}}\ >\ *\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}})\{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Lève\ un\ flag\ d'erreur\ =\ stop\ le\ programme,\ q\_,\ qMin\_\ et\ qMax\_\ ne\ sont\ pas\ initialisés}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}qMin\ must\ be\ less\ than\ or\ equal\ to\ qMax"{}});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(*\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_\ <\ *qMin\_\ ||\ *q\_\ >}}\ *\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}})\{\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Joint\ angle\ out\ of\ bounds"{}});}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Destructeur}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCJoint_a08ce9381ae6968eeacfe81dcb5c992b2}{\string~CJoint}}()\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Constructeur\ de\ copie}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0ab69fba8d303a9abe450ec4cb21d5d5}{CJoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCJoint}{CJoint}}\&\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{other}})\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(*\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{other}}.q\_);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(*\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{other}}.qMin\_);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(*\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{other}}.qMax\_);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Setters}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCJoint_a8b4ce28f0f5a680be041dceff56c10ee}{setQ}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q}})}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\ <\ *qMin\_\ ||\ q\ >}}\ *\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}})\{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Joint\ angle\ out\ of\ bounds"{}});}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}}\ =\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q}};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCJoint_abf62a8b8a1eee97c8dc7a9cd1848af8c}{setQMin}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMin}})\{\mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMin}});\};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCJoint_a29211c8a032a04909e7832a78a69c994}{setQMax}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMax}})\{\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{double}}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMax}});\};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Getters}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\&\ \mbox{\hyperlink{classCJoint_ab068679eec5d051104f0f0bc814aebed}{getQ}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}};\};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\&\ \mbox{\hyperlink{classCJoint_ac68314cc553d232d4f173fb9a2fe2397}{getQMin}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classCJoint_ae4d1311c79aa1dd9704f91f679a07be6}{qMin\_}};\};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\&\ \mbox{\hyperlink{classCJoint_a9108d0abbf37b69b1c8eec6119e35479}{getQMax}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classCJoint_ad261f5586c353ff1eeca150b0b550a17}{qMax\_}};\};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ Eigen::Matrix4d\ \mbox{\hyperlink{classCJoint_ad0cfbcd5d9c7e65ff5f4cd1c4d9e3fdd}{getTransform}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCJoint_a1e0eab95eccfd71be5a6718f9de3577c}{getTypeName}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::unique\_ptr<CJoint>\ \mbox{\hyperlink{classCJoint_adbe01982af9b086c440bd31e4b8d581e}{clone}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00058\ \};}
 
 \end{DoxyCode}

@@ -3,20 +3,26 @@
 \mbox{\hyperlink{cjointprismatic_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../inc/inc.h"{}}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCJointPrismatic}{CJointPrismatic}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCJoint}{CJoint}}\{}
-\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJointPrismatic_afceff8fbea02106befe6d4bd340336cc}{CJointPrismatic}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMin}}=-\/\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{M\_PI}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMax}}=\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{M\_PI}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q}}=0):\mbox{\hyperlink{classCJoint}{CJoint}}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMin}},\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMax}},\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q}})\{\};}
-\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ Eigen::Matrix4d\ \mbox{\hyperlink{classCJointPrismatic_a09d5040a7baa620154fb21fc09e364fb}{getTransform}}()\textcolor{keyword}{\ const\ override}\{}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Prismatic\ transform\ from\ derivate\ class"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}}\ =\ Eigen::Matrix4d::Identity();}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}}(2,3)\ =\ *\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}};}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}};}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCJointPrismatic_aa632f6fbfc062aed23658238eadc7556}{getTypeName}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Prismatic"{}};\ \};}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::unique\_ptr<CJoint>\ \mbox{\hyperlink{classCJointPrismatic_a18f1a774f4d81c092401983f84d63769}{clone}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ std::make\_unique<CJointPrismatic>(*\textcolor{keyword}{this});\ \};}
-\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cjoint_8h}{cjoint.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCJointPrismatic}{CJointPrismatic}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCJoint}{CJoint}}\{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJointPrismatic_afceff8fbea02106befe6d4bd340336cc}{CJointPrismatic}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMin}}=-\/\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{M\_PI}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMax}}=\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{M\_PI}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q}}=0):\mbox{\hyperlink{classCJoint}{CJoint}}(\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMin}},\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{qMax}},\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q}})\{\};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ Eigen::Matrix4d\ \mbox{\hyperlink{classCJointPrismatic_a09d5040a7baa620154fb21fc09e364fb}{getTransform}}()\textcolor{keyword}{\ const\ override}\{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Prismatic\ transform\ from\ derivate\ class"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}}\ =\ Eigen::Matrix4d::Identity();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}}(2,3)\ =\ *\mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{q\_}};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCJoint_a0092803cd40c80b1532fcc5ca2af4b90}{transform}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCJointPrismatic_aa632f6fbfc062aed23658238eadc7556}{getTypeName}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Prismatic"{}};\ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::unique\_ptr<CJoint>\ \mbox{\hyperlink{classCJointPrismatic_a18f1a774f4d81c092401983f84d63769}{clone}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ std::make\_unique<CJointPrismatic>(*\textcolor{keyword}{this});\ \};}
+\DoxyCodeLine{00025\ \};}
 
 \end{DoxyCode}

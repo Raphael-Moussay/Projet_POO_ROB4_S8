@@ -6,5 +6,6 @@ var searchData=
   ['cjointrevolute_3',['CJointRevolute',['../classCJointRevolute.html#afda476cee57784891c70108db0d8f084',1,'CJointRevolute']]],
   ['clone_4',['clone',['../classCJoint.html#adbe01982af9b086c440bd31e4b8d581e',1,'CJoint::clone()'],['../classCJointPrismatic.html#a18f1a774f4d81c092401983f84d63769',1,'CJointPrismatic::clone()'],['../classCJointRevolute.html#ac91322b995b07960efe6551c6e5e7212',1,'CJointRevolute::clone()']]],
   ['colors_5',['colors',['../colors_8h.html#a58a65b579421423f4c3cf01f03c5c19a',1,'colors.h']]],
-  ['computefk_6',['computeFK',['../classCBras.html#ae8940c586425e6c4d34486e9e9235e58',1,'CBras']]]
+  ['computefk_6',['computeFK',['../classCBras.html#ae8940c586425e6c4d34486e9e9235e58',1,'CBras']]],
+  ['cvecteur_7',['cvecteur',['../classCVecteur.html#a4f41fb159e3f7080b27ae189ce76d2f7',1,'CVecteur::CVecteur()=default'],['../classCVecteur.html#a612a7140fc50867ac8b0481047b066cd',1,'CVecteur::CVecteur(const CVecteur &amp;other)=default'],['../classCVecteur.html#ad7a7e13647cfc2d2131ad6888c158685',1,'CVecteur::CVecteur(CVecteur &amp;&amp;other)=default']]]
 ];

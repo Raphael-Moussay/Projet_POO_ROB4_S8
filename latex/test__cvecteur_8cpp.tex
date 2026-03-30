@@ -1,0 +1,102 @@
+\doxysection{src/test\+\_\+cvecteur.cpp File Reference}
+\hypertarget{test__cvecteur_8cpp}{}\label{test__cvecteur_8cpp}\index{src/test\_cvecteur.cpp@{src/test\_cvecteur.cpp}}
+{\ttfamily \#include "{}../inc/cvecteur.\+h"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+Include dependency graph for test\+\_\+cvecteur.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test__cvecteur_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{test__cvecteur_8cpp_a0240ac851181b84ac374872dc5434ee4}{N}}~3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{test__cvecteur_8cpp_adf720579198b88b6267e1552a27fa939}{TEST}} (CVecteur\+Test, Access\+Operator\+Read\+Write)
+\item 
+\mbox{\hyperlink{test__cvecteur_8cpp_a56124b6cffd3ad8fa2691c1c8a515d09}{TEST}} (CVecteur\+Test, Addition\+Element\+Wise)
+\item 
+\mbox{\hyperlink{test__cvecteur_8cpp_aaed10adfdfcc8aaccf1535ecd72f9d06}{TEST}} (CVecteur\+Test, Subtraction\+Element\+Wise)
+\item 
+\mbox{\hyperlink{test__cvecteur_8cpp_a43494b4d8e0c96466e4d3e0f4a804318}{TEST}} (CVecteur\+Test, Scalar\+Multiplication)
+\item 
+\mbox{\hyperlink{test__cvecteur_8cpp_a3aea680a92f3f1ad4b7bd44acc8c4219}{TEST}} (CVecteur\+Test, Dot\+And\+Norm\+On\+Canonical\+Vectors)
+\item 
+\mbox{\hyperlink{test__cvecteur_8cpp_aed6e9fc5765c9621bedae7fcd47de681}{TEST}} (CVecteur\+Test, Dot\+General\+Case)
+\item 
+\mbox{\hyperlink{test__cvecteur_8cpp_a0d72fa22c4d7f22a53db354a981f1d55}{TEST}} (CVecteur\+Test, To\+Eigen\+Conversion)
+\item 
+void \mbox{\hyperlink{test__cvecteur_8cpp_a582559478ba2320f6be7fedf96b81951}{exo3\+\_\+3}} ()
+\begin{DoxyCompactList}\small\item\em Exercice 3 question 3 \+: test des méthodes de la classe \doxylink{classCVecteur}{CVecteur}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{test__cvecteur_8cpp_a0240ac851181b84ac374872dc5434ee4}\label{test__cvecteur_8cpp_a0240ac851181b84ac374872dc5434ee4} 
+\index{test\_cvecteur.cpp@{test\_cvecteur.cpp}!N@{N}}
+\index{N@{N}!test\_cvecteur.cpp@{test\_cvecteur.cpp}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily \#define N~3}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test__cvecteur_8cpp_a582559478ba2320f6be7fedf96b81951}\label{test__cvecteur_8cpp_a582559478ba2320f6be7fedf96b81951} 
+\index{test\_cvecteur.cpp@{test\_cvecteur.cpp}!exo3\_3@{exo3\_3}}
+\index{exo3\_3@{exo3\_3}!test\_cvecteur.cpp@{test\_cvecteur.cpp}}
+\doxysubsubsection{\texorpdfstring{exo3\_3()}{exo3\_3()}}
+{\footnotesize\ttfamily void exo3\+\_\+3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exercice 3 question 3 \+: test des méthodes de la classe \doxylink{classCVecteur}{CVecteur}. 
+
+\Hypertarget{test__cvecteur_8cpp_adf720579198b88b6267e1552a27fa939}\label{test__cvecteur_8cpp_adf720579198b88b6267e1552a27fa939} 
+\index{test\_cvecteur.cpp@{test\_cvecteur.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_cvecteur.cpp@{test\_cvecteur.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{CVecteur\+Test}]{,  }\item[{Access\+Operator\+Read\+Write}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{test__cvecteur_8cpp_a56124b6cffd3ad8fa2691c1c8a515d09}\label{test__cvecteur_8cpp_a56124b6cffd3ad8fa2691c1c8a515d09} 
+\index{test\_cvecteur.cpp@{test\_cvecteur.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_cvecteur.cpp@{test\_cvecteur.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{CVecteur\+Test}]{,  }\item[{Addition\+Element\+Wise}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{test__cvecteur_8cpp_a3aea680a92f3f1ad4b7bd44acc8c4219}\label{test__cvecteur_8cpp_a3aea680a92f3f1ad4b7bd44acc8c4219} 
+\index{test\_cvecteur.cpp@{test\_cvecteur.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_cvecteur.cpp@{test\_cvecteur.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{CVecteur\+Test}]{,  }\item[{Dot\+And\+Norm\+On\+Canonical\+Vectors}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{test__cvecteur_8cpp_aed6e9fc5765c9621bedae7fcd47de681}\label{test__cvecteur_8cpp_aed6e9fc5765c9621bedae7fcd47de681} 
+\index{test\_cvecteur.cpp@{test\_cvecteur.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_cvecteur.cpp@{test\_cvecteur.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{CVecteur\+Test}]{,  }\item[{Dot\+General\+Case}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{test__cvecteur_8cpp_a43494b4d8e0c96466e4d3e0f4a804318}\label{test__cvecteur_8cpp_a43494b4d8e0c96466e4d3e0f4a804318} 
+\index{test\_cvecteur.cpp@{test\_cvecteur.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_cvecteur.cpp@{test\_cvecteur.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{CVecteur\+Test}]{,  }\item[{Scalar\+Multiplication}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{test__cvecteur_8cpp_aaed10adfdfcc8aaccf1535ecd72f9d06}\label{test__cvecteur_8cpp_aaed10adfdfcc8aaccf1535ecd72f9d06} 
+\index{test\_cvecteur.cpp@{test\_cvecteur.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_cvecteur.cpp@{test\_cvecteur.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{CVecteur\+Test}]{,  }\item[{Subtraction\+Element\+Wise}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{test__cvecteur_8cpp_a0d72fa22c4d7f22a53db354a981f1d55}\label{test__cvecteur_8cpp_a0d72fa22c4d7f22a53db354a981f1d55} 
+\index{test\_cvecteur.cpp@{test\_cvecteur.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_cvecteur.cpp@{test\_cvecteur.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{CVecteur\+Test}]{,  }\item[{To\+Eigen\+Conversion}]{ }\end{DoxyParamCaption})}
+

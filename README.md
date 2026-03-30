@@ -46,3 +46,21 @@ Quel exercice voulez-vous tester ? (1, 2 ou q pour quitter) :
 ```
 
 Il suffit de rentrer la valeur de votre choix parmi celles proposées : 1, 2 ou q
+
+# Graphique UML
+
+## Télécharger hpp2plantuml:
+
+```bash
+pip install hpp2plantuml
+```
+
+## Génération du fichier .puml
+
+```
+hpp2plantuml -i "inc/*.h" -o projet.puml
+```
+
+## **Visualisation**
+
+Installer l'extension PlantUML sur vscode pour visualiser le fichier ou utiliser un autre outil.

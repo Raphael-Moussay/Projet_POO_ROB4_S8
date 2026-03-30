@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['_7ecbras_0',['~CBras',['../classCBras.html#abf569f5f657eb96920654fc312e13203',1,'CBras']]],
-  ['_7ecjoint_1',['~CJoint',['../classCJoint.html#a08ce9381ae6968eeacfe81dcb5c992b2',1,'CJoint']]],
-  ['_7ecjointrevolute_2',['~CJointRevolute',['../classCJointRevolute.html#a70a75689002cb7b100a9a39f3816817e',1,'CJointRevolute']]]
+  ['set_5fstyle_0',['set_style',['../colors_8h.html#ab1b0cc37f2041a1bdfd00690d80de6e1',1,'colors.h']]],
+  ['setdx_1',['setDx',['../classCJointRevolute.html#a96f4ad50ed63f4e805ebf3a689ec2d5e',1,'CJointRevolute']]],
+  ['setq_2',['setq',['../classCBras.html#a1dcb8b2e655e38b3907dd3eb2aee2f7a',1,'CBras::setQ()'],['../classCJoint.html#a8b4ce28f0f5a680be041dceff56c10ee',1,'CJoint::setQ(double q)']]],
+  ['setqmax_3',['setQMax',['../classCJoint.html#a29211c8a032a04909e7832a78a69c994',1,'CJoint']]],
+  ['setqmin_4',['setQMin',['../classCJoint.html#abf62a8b8a1eee97c8dc7a9cd1848af8c',1,'CJoint']]]
 ];

@@ -1,0 +1,112 @@
+@startuml
+
+
+
+
+
+/' Objects '/
+
+class CBras {
+	+CBras()
+	+CBras(CBras&& other)
+	+CBras(const CBras& other)
+	+~CBras()
+	+operator=(CBras&& other) : CBras&
+	+operator=(CBras other) : CBras&
+	+getJoint(size_t i) : CJoint&
+	+computeFK() : Eigen::Matrix4d
+	+getQ() : Eigen::VectorXd {query}
+	+randomQ() : Eigen::VectorXd {query}
+	+getNbJoints() : int
+	+operator<<(std::ostream& os, CBras& bras) : std :: ostream&
+	-tab_joints_ : std::vector<std::unique_ptr<CJoint>>
+	+addJoint(std::unique_ptr<CJoint> joint) : void
+	+setQ(const Eigen::VectorXd& q) : void
+	+swap(CBras& first, CBras& second) : void
+}
+
+
+abstract class CJoint {
+	+CJoint(double qMin, double qMax, double q)
+	+CJoint(const CJoint& other)
+	+~CJoint()
+	+{abstract} getTransform() : Eigen::Matrix4d {query}
+	+getQ() : double& {query}
+	+getQMax() : double& {query}
+	+getQMin() : double& {query}
+	#qMax_ : double*
+	#qMin_ : double*
+	#q_ : double*
+	+{abstract} getTypeName() : std::string {query}
+	+{abstract} clone() : std::unique_ptr<CJoint> {query}
+	+setQ(double q) : void
+	+setQMax(double qMax) : void
+	+setQMin(double qMin) : void
+}
+
+
+class CJointPrismatic {
+	+CJointPrismatic(double qMin, double qMax, double q)
+	+getTransform() : Eigen::Matrix4d {query}
+	+getTypeName() : std::string {query}
+	+clone() : std::unique_ptr<CJoint> {query}
+}
+
+
+class CJointRevolute {
+	+CJointRevolute(double qMin, double qMax, double q, double dx)
+	+~CJointRevolute()
+	+getTransform() : Eigen::Matrix4d {query}
+	+getDx() : double& {query}
+	-dx_ : double*
+	+getTypeName() : std::string {query}
+	+clone() : std::unique_ptr<CJoint> {query}
+	+setDx(double dx) : void
+}
+
+
+class CVecteur <template<typename T, std::size_t N>> {
+	+CVecteur()
+	+CVecteur(const CVecteur& other)
+	+CVecteur(CVecteur&& other)
+	+~CVecteur()
+	+operator*(T scalar) : CVecteur {query}
+	+operator+(const CVecteur& other) : CVecteur {query}
+	+operator-(const CVecteur& other) : CVecteur {query}
+	+toEigen() : Eigen::Matrix<T , N , 1> {query}
+	+dot(const CVecteur& other) : T {query}
+	+norm() : T {query}
+	+operator[](std::size_t i) : T&
+	+operator[](std::size_t i) : T& {query}
+	-stockage_ : std::array<T, N>
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+CJoint <|-- CJointPrismatic
+
+
+CJoint <|-- CJointRevolute
+
+
+
+
+
+/' Aggregation relationships '/
+
+CBras o-- CJoint
+
+
+
+
+
+
+/' Nested objects '/
+
+
+
+@enduml

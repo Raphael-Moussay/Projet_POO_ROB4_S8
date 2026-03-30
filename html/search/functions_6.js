@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['randomq_0',['randomQ',['../classCBras.html#ab794339de6725bc708990f8d0d339d9e',1,'CBras']]]
+  ['norm_0',['norm',['../classCVecteur.html#ab591754871d902babfa872b5a83739ec',1,'CVecteur']]]
 ];

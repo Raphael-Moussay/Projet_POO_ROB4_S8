@@ -12,7 +12,9 @@
 
 class CJoint{
     protected:
-        double *q_,*qMin_,*qMax_;
+        double *q_;
+        double *qMin_;
+        double *qMax_;
     public:
         //Constructeur
         CJoint(double qMin=-M_PI, double qMax=M_PI,double q=0): q_(new double(q)), qMin_(new double(qMin)), qMax_(new double(qMax)) {
@@ -46,8 +48,14 @@ class CJoint{
             }
             *q_ = q;
         };
-        void setQMin(double qMin){qMin_ = new double(qMin);};
-        void setQMax(double qMax){qMax_ = new double(qMax);};
+        void setQMin(double qMin){
+            delete qMin_;
+            qMin_ = new double(qMin);
+        };
+        void setQMax(double qMax){
+            delete qMax_;
+            qMax_ = new double(qMax);
+        };
 
         //Getters
         const double& getQ() const {return *q_;};

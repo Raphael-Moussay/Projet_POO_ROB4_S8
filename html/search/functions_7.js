@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['set_5fstyle_0',['set_style',['../colors_8h.html#ab1b0cc37f2041a1bdfd00690d80de6e1',1,'colors.h']]],
-  ['setdx_1',['setDx',['../classCJointRevolute.html#a96f4ad50ed63f4e805ebf3a689ec2d5e',1,'CJointRevolute']]],
-  ['setq_2',['setq',['../classCBras.html#a1dcb8b2e655e38b3907dd3eb2aee2f7a',1,'CBras::setQ()'],['../classCJoint.html#a8b4ce28f0f5a680be041dceff56c10ee',1,'CJoint::setQ(double q)']]],
-  ['setqmax_3',['setQMax',['../classCJoint.html#a29211c8a032a04909e7832a78a69c994',1,'CJoint']]],
-  ['setqmin_4',['setQMin',['../classCJoint.html#abf62a8b8a1eee97c8dc7a9cd1848af8c',1,'CJoint']]]
+  ['operator_2a_0',['operator*',['../classCVecteur.html#a9711349a5020a7e757af70921e9b6263',1,'CVecteur']]],
+  ['operator_2b_1',['operator+',['../classCVecteur.html#a2a97ff81ecd420bafe5128afc60468da',1,'CVecteur']]],
+  ['operator_2d_2',['operator-',['../classCVecteur.html#aeb7dc658ea7329c7ac82664abd072905',1,'CVecteur']]],
+  ['operator_3d_3',['operator=',['../classCBras.html#aae1cee73c00576f2eb68f16e1a43c849',1,'CBras::operator=(CBras &amp;&amp;other)=default'],['../classCBras.html#a74365b3397ae3e0af9931dff00392c2c',1,'CBras::operator=(CBras other)']]],
+  ['operator_5b_5d_4',['operator[]',['../classCVecteur.html#a288c9d0f939e0588bae1d795f05290eb',1,'CVecteur::operator[](std::size_t i)'],['../classCVecteur.html#a6a5b9ce49840b65360c574897f59b212',1,'CVecteur::operator[](std::size_t i) const']]]
 ];

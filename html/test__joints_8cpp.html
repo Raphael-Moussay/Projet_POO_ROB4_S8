@@ -78,59 +78,56 @@ $(function() {
   <div class="headertitle"><div class="title">test_joints.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="inc_8h_source.html">../inc/inc.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="cjointprismatic_8h_source.html">../inc/cjointprismatic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cjointrevolute_8h_source.html">../inc/cjointrevolute.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="test__joints_8h_source.html">../inc/test_joints.h</a>&quot;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;eigen3/Eigen/Dense&gt;</code><br />
+<code>#include &lt;gtest/gtest.h&gt;</code><br />
+<code>#include &lt;pinocchio/spatial/se3.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for test_joints.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="test__joints_8cpp__incl.png" border="0" usemap="#asrc_2test__joints_8cpp" alt=""/></div>
 <map name="asrc_2test__joints_8cpp" id="asrc_2test__joints_8cpp">
-<area shape="rect" title=" " alt="" coords="670,5,810,31"/>
-<area shape="rect" href="inc_8h.html" title=" " alt="" coords="696,79,784,104"/>
-<area shape="poly" title=" " alt="" coords="743,31,743,65,737,65,737,31"/>
-<area shape="rect" href="cjoint_8h.html" title=" " alt="" coords="155,159,226,185"/>
-<area shape="poly" title=" " alt="" coords="696,98,500,114,373,131,246,155,234,158,233,153,245,149,372,125,499,109,696,92"/>
-<area shape="rect" title=" " alt="" coords="5,240,64,265"/>
-<area shape="poly" title=" " alt="" coords="696,95,567,98,399,106,235,123,169,137,121,154,99,170,79,189,50,229,45,226,75,186,95,166,119,150,168,132,234,118,398,100,567,92,696,90"/>
-<area shape="rect" title=" " alt="" coords="88,240,168,265"/>
-<area shape="poly" title=" " alt="" coords="696,97,560,102,385,113,228,130,173,141,144,154,133,170,128,188,127,227,121,227,122,187,129,167,141,150,172,136,227,125,385,108,559,97,696,91"/>
-<area shape="rect" title=" " alt="" coords="192,240,269,265"/>
-<area shape="poly" title=" " alt="" coords="696,98,501,116,399,133,358,143,328,154,303,170,282,190,248,230,244,226,278,186,300,166,325,150,356,138,398,128,500,111,696,93"/>
-<area shape="rect" title=" " alt="" coords="294,240,445,265"/>
-<area shape="poly" title=" " alt="" coords="696,95,607,97,500,105,448,113,402,123,366,137,342,154,335,170,336,190,344,209,354,227,349,230,339,211,331,191,329,170,338,150,363,132,401,118,447,107,499,100,607,92,696,90"/>
-<area shape="rect" href="cjointprismatic_8h.html" title=" " alt="" coords="352,159,483,185"/>
-<area shape="poly" title=" " alt="" coords="697,104,472,158,471,153,695,99"/>
-<area shape="rect" href="cjointrevolute_8h.html" title=" " alt="" coords="507,159,631,185"/>
-<area shape="poly" title=" " alt="" coords="710,106,601,156,599,151,708,102"/>
-<area shape="rect" href="colors_8h.html" title="Utilitaires pour la manipulation des couleurs et styles du terminal ANSI." alt="" coords="655,159,729,185"/>
-<area shape="poly" title=" " alt="" coords="735,106,708,149,704,146,731,103"/>
-<area shape="rect" href="cbras_8h.html" title=" " alt="" coords="753,159,823,185"/>
-<area shape="poly" title=" " alt="" coords="743,103,768,147,764,149,738,106"/>
-<area shape="rect" title=" " alt="" coords="787,240,861,265"/>
-<area shape="poly" title=" " alt="" coords="775,102,809,121,825,134,837,151,844,170,845,190,837,227,832,226,839,190,838,171,832,153,821,138,806,125,773,106"/>
-<area shape="rect" href="test__joints_8h.html" title=" " alt="" coords="898,159,1001,185"/>
-<area shape="poly" title=" " alt="" coords="771,102,907,152,905,157,770,107"/>
-<area shape="rect" href="test__bras_8h.html" title=" " alt="" coords="1025,159,1119,185"/>
-<area shape="poly" title=" " alt="" coords="785,98,890,120,1014,149,1026,153,1024,158,1013,155,889,125,784,104"/>
-<area shape="rect" title=" " alt="" coords="1143,152,1294,192"/>
-<area shape="poly" title=" " alt="" coords="785,96,934,117,1130,149,1129,154,933,122,784,101"/>
-<area shape="rect" title=" " alt="" coords="1319,159,1505,185"/>
-<area shape="poly" title=" " alt="" coords="784,94,1009,114,1307,149,1339,154,1338,160,1306,155,1008,119,784,99"/>
-<area shape="rect" title=" " alt="" coords="1530,159,1593,185"/>
-<area shape="poly" title=" " alt="" coords="784,91,1152,109,1364,127,1452,137,1518,149,1527,152,1525,157,1517,155,1451,143,1363,132,1151,115,784,97"/>
-<area shape="rect" title=" " alt="" coords="1617,159,1721,185"/>
-<area shape="poly" title=" " alt="" coords="784,90,923,91,1126,99,1364,117,1486,131,1606,149,1623,153,1622,158,1605,155,1486,136,1364,122,1126,104,923,96,784,95"/>
-<area shape="rect" title=" " alt="" coords="1746,159,1817,185"/>
-<area shape="poly" title=" " alt="" coords="784,91,977,96,1252,106,1531,124,1647,135,1734,149,1744,152,1743,157,1733,155,1646,141,1530,129,1252,112,977,101,784,96"/>
-<area shape="poly" title=" " alt="" coords="169,187,71,236,68,232,167,182"/>
-<area shape="poly" title=" " alt="" coords="183,187,148,231,144,228,179,183"/>
-<area shape="poly" title=" " alt="" coords="199,184,221,227,216,229,194,186"/>
-<area shape="poly" title=" " alt="" coords="218,182,332,232,330,237,216,187"/>
-<area shape="poly" title=" " alt="" coords="470,157,686,105,687,110,472,162"/>
-<area shape="poly" title=" " alt="" coords="600,157,708,108,710,113,602,162"/>
-<area shape="rect" title=" " alt="" coords="659,240,725,265"/>
-<area shape="poly" title=" " alt="" coords="695,185,695,226,689,226,689,185"/>
-<area shape="poly" title=" " alt="" coords="785,160,760,116,764,114,790,158"/>
-<area shape="poly" title=" " alt="" coords="796,184,815,226,811,229,791,186"/>
+<area shape="rect" title=" " alt="" coords="494,5,634,31"/>
+<area shape="rect" href="cjointprismatic_8h.html" title=" " alt="" coords="34,79,201,104"/>
+<area shape="poly" title=" " alt="" coords="494,33,203,79,202,74,493,28"/>
+<area shape="rect" title=" " alt="" coords="23,225,86,251"/>
+<area shape="poly" title=" " alt="" coords="494,25,365,31,217,42,89,59,46,69,23,81,14,95,10,111,12,147,25,182,41,212,37,215,20,185,7,148,4,111,9,93,20,77,44,64,88,53,216,37,365,26,494,19"/>
+<area shape="rect" title=" " alt="" coords="454,225,605,251"/>
+<area shape="poly" title=" " alt="" coords="560,32,549,53,540,79,531,151,530,212,525,212,525,150,535,78,544,51,555,30"/>
+<area shape="rect" href="cjointrevolute_8h.html" title=" " alt="" coords="270,79,429,104"/>
+<area shape="poly" title=" " alt="" coords="530,33,398,77,396,72,529,28"/>
+<area shape="rect" href="test__joints_8h.html" title=" " alt="" coords="549,79,686,104"/>
+<area shape="poly" title=" " alt="" coords="575,29,603,66,598,69,571,33"/>
+<area shape="rect" title=" " alt="" coords="710,79,770,104"/>
+<area shape="poly" title=" " alt="" coords="593,28,699,71,697,76,591,33"/>
+<area shape="rect" title=" " alt="" coords="795,79,899,104"/>
+<area shape="poly" title=" " alt="" coords="610,28,789,73,787,78,609,33"/>
+<area shape="rect" title=" " alt="" coords="923,79,1109,104"/>
+<area shape="poly" title=" " alt="" coords="635,28,931,74,930,79,634,33"/>
+<area shape="rect" href="cjoint_8h.html" title=" " alt="" coords="351,152,422,177"/>
+<area shape="poly" title=" " alt="" coords="161,101,338,148,337,153,160,107"/>
+<area shape="poly" title=" " alt="" coords="93,106,64,126,51,138,41,153,37,167,37,182,45,212,40,213,32,183,32,167,36,151,47,135,61,121,90,102"/>
+<area shape="rect" title=" " alt="" coords="241,225,319,251"/>
+<area shape="poly" title=" " alt="" coords="119,104,121,139,126,159,135,176,150,187,173,198,229,219,227,224,171,203,147,191,131,179,121,161,115,140,114,105"/>
+<area shape="rect" title=" " alt="" coords="159,225,217,251"/>
+<area shape="poly" title=" " alt="" coords="110,106,91,139,87,158,92,176,102,190,116,202,147,220,144,225,113,207,98,194,87,178,82,158,86,137,105,103"/>
+<area shape="rect" title=" " alt="" coords="145,152,225,177"/>
+<area shape="poly" title=" " alt="" coords="131,102,167,140,163,144,127,106"/>
+<area shape="poly" title=" " alt="" coords="352,176,100,230,99,225,351,171"/>
+<area shape="poly" title=" " alt="" coords="371,180,310,220,307,215,368,175"/>
+<area shape="rect" title=" " alt="" coords="343,225,430,251"/>
+<area shape="poly" title=" " alt="" coords="389,178,389,212,384,212,384,178"/>
+<area shape="poly" title=" " alt="" coords="356,180,232,224,230,219,354,175"/>
+<area shape="poly" title=" " alt="" coords="411,175,495,217,493,221,408,180"/>
+<area shape="poly" title=" " alt="" coords="358,103,377,139,372,141,353,106"/>
+<area shape="poly" title=" " alt="" coords="339,106,296,142,239,180,167,210,100,229,99,224,165,205,236,175,293,137,335,102"/>
+<area shape="poly" title=" " alt="" coords="377,102,403,115,426,133,440,155,441,167,436,179,419,193,394,205,333,226,331,221,392,200,417,188,431,176,435,166,435,156,422,137,400,120,375,106"/>
+<area shape="poly" title=" " alt="" coords="344,106,319,140,283,179,254,202,224,221,221,216,251,198,280,175,315,137,340,102"/>
+<area shape="poly" title=" " alt="" coords="324,106,226,149,223,144,322,102"/>
 </map>
 </div>
 </div><table class="memberdecls">
