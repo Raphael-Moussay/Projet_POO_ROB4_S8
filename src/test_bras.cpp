@@ -83,7 +83,7 @@ TEST(BrasTest, computeFKOneRevoluteJoint){
     EXPECT_TRUE(translation.isApprox(expectedPosition, 1e-6));
 }
 
-
+ 
 TEST(BrasTest, getJointOutOfRange){
     CBras bras;
     bras.addJoint(std::make_unique<CJointRevolute>(-M_PI, M_PI, 0.0, 0.5));
