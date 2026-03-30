@@ -1,6 +1,7 @@
 build/exo4.o: src/exo4.cpp src/../inc/cjoint.h src/../inc/colors.h \
  src/../inc/cjointprismatic.h src/../inc/cjoint.h \
- src/../inc/cjointrevolute.h src/../inc/cbras.h src/../inc/colors.h \
+ src/../inc/cjointrevolute.h src/../inc/cjointrevolute_with_axe.h \
+ src/../inc/cbras.h src/../inc/colors.h \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/multibody/fcl.hpp \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/spatial/se3.hpp \
  /opt/openrobots/lib/pkgconfig/../../include/pinocchio/spatial/fwd.hpp \
@@ -259,6 +260,7 @@ src/../inc/colors.h:
 src/../inc/cjointprismatic.h:
 src/../inc/cjoint.h:
 src/../inc/cjointrevolute.h:
+src/../inc/cjointrevolute_with_axe.h:
 src/../inc/cbras.h:
 src/../inc/colors.h:
 /opt/openrobots/lib/pkgconfig/../../include/pinocchio/multibody/fcl.hpp:
