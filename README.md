@@ -2,6 +2,8 @@
 
 MOUSSAY Raphaël et ORIEUX Jean
 
+Lien du repo git : [https://github.com/Raphael-Moussay/Projet_POO_ROB4_S8](https://github.com/Raphael-Moussay/Projet_POO_ROB4_S8)
+
 # Utilisation et compilation du code
 
 ## Pré-requis
@@ -42,10 +44,16 @@ make rebuild #Rebuild complet
 A l'exécution le programme affiche
 
 ```bash
-Quel exercice voulez-vous tester ? (1, 2 ou q pour quitter) : 
+Choisissez ce que vous souhaitez faire :
+        0 - Exécuter tous les tests
+        1 - Tests joints
+        2 - Tests bras
+        3 - Tests cvecteur
+        4 - Exo 4
+        q - Quitter
 ```
 
-Il suffit de rentrer la valeur de votre choix parmi celles proposées : 1, 2 ou q
+Il suffit de rentrer la valeur de votre choix parmi celles proposées : 0, 1, 2, 3, 4 ou q
 
 # Graphique UML
 
@@ -69,12 +77,12 @@ Installer l'extension Plan UML sur vscode pour visualiser le fichier `projet.pum
 
 ## Génerer les fichiers nécessaires :
 
-Dans le terminal : 
+Dans le terminal :
 
 ```bash
 doxygen
 ```
 
-## Visualiser : 
+## Visualiser :
 
 Ouvrir le fichier `html/index.html` sur un navigateur pour voir la documentation dynamique
