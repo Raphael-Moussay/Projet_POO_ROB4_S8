@@ -28,12 +28,20 @@ class CJointRevolute : public CJoint{
         CJointRevolute( double qMin=-M_PI, double qMax=M_PI,double q=0, double dx=0): CJoint(qMin, qMax, q){
             dx_ = new double(dx);
         }
+        
+        // Copy constructor
+        CJointRevolute(const CJointRevolute& other) : CJoint(other) {
+            dx_ = new double(*other.dx_);
+        }
+        
         virtual ~CJointRevolute(){
             delete dx_;
         }
 
         const double& getDx() const { return *dx_; };
-        void setDx(double dx) { *dx_ = dx; };
+        void setDx(double dx) { 
+            *dx_ = dx; 
+        };
 
        /**
          * @brief Calcule la matrice de transformation homogène associée à la configuration revolution.

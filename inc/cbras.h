@@ -111,7 +111,7 @@ class CBras{
         /**
          * Surcharge opérateur = par copy-and-swap
          */
-        CBras& operator=(CBras other)
+        CBras& operator=(const CBras& other)
         {
             CBras temp(other);
             swap(*this, temp);

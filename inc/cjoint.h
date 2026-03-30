@@ -49,12 +49,10 @@ class CJoint{
             *q_ = q;
         };
         void setQMin(double qMin){
-            delete qMin_;
-            qMin_ = new double(qMin);
+            *qMin_ = qMin;
         };
         void setQMax(double qMax){
-            delete qMax_;
-            qMax_ = new double(qMax);
+            *qMax_ = qMax;
         };
 
         //Getters
