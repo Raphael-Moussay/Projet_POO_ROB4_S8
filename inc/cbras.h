@@ -29,7 +29,11 @@ class CBras{
         CBras(CBras&& other) = default;
         CBras& operator=(CBras&& other) = default;
 
-        
+        /**
+         * @brief Ajoute un joint au bras.
+         * @param joint : pointeur unique vers le joint à ajouter.
+         * Le joint est ajouté à la fin de la liste des joints du bras.
+         */
         void addJoint(std::unique_ptr<CJoint> joint){
             tab_joints_.push_back(std::move(joint));
         }
@@ -49,25 +53,27 @@ class CBras{
         }
         
         /**
-         * Nombre de joints dans le bras
+         * @brief Retourne le nombre de joints dans le bras.
          */
         int getNbJoints(){
             return tab_joints_.size();
         }
         
         /**
-         * Get the joints i 
+         * @brief Retourne une référence constante vers le joint à l'index spécifié.
+         * @param i : index du joint à retourner.
+         * @return Référence constante vers le joint à l'index spécifié.
+         * Leve std::out_of_range si l'index est supérieur ou égal au nombre de joints dans le bras. 
          */
         const CJoint& getJoint(size_t i){
             if(i >= tab_joints_.size()){
                 throw std::out_of_range("Joint index out of range");
             }
             return *tab_joints_[i];
-            //return *tab_joints_.at(i);
         }
         
         /**
-         * Surcharge de l'opérateur << pour afficher 
+         * @brief Surcharge de l'opérateur << pour afficher 
          */
         friend std::ostream& operator<<(std::ostream& os, CBras& bras){
             int nbJoints = bras.getNbJoints();

@@ -1,6 +1,7 @@
 #include "../inc/cjoint.h"
 #include "../inc/cjointprismatic.h"
 #include "../inc/cjointrevolute.h"
+#include "../inc/cjointrevolute_with_axe.h"
 #include "../inc/cbras.h" 
 #include "../inc/colors.h"  
 
@@ -54,15 +55,15 @@ void exo4()
         //.block<3,1>(0,3).transpose()
     }
     colors(F_YELLOW);
-    printf("====================================================\n");
-    printf("Affichage de la configuration du bras...\n");
-    printf("====================================================\n");
+    std::cout << "====================================================\n";
+    std::cout << "Affichage de la configuration du bras...\n";
+    std::cout << "====================================================\n";
     colors(RESET);
     std:: cout << bras;
     colors(F_YELLOW);
-    printf("====================================================\n");
-    printf("Chargement de l'UR5...\n");
-    printf("====================================================\n");
+    std::cout << "====================================================\n";
+    std::cout << "Chargement de l'UR5...\n";
+    std::cout << "====================================================\n";
     colors(RESET);
 
     std::string urdf_path = "/opt/openrobots/share/example-robot-data/robots/ur_description/urdf/ur5_robot.urdf";
@@ -80,12 +81,41 @@ void exo4()
     std::cout << "Création du bras UR5..." << std::endl;
     std::cout << "====================================================\n";
     CBras UR5_bras;
-    UR5_bras.addJoint(std::make_unique<CJointRevolute>(-M_PI, M_PI, 0.0, 0.3)); //shoulder_pan_joint
-    UR5_bras.addJoint(std::make_unique<CJointRevolute>(-M_PI/2, M_PI/2, 1, 0.25)); //shoulder_lift_joint
-    UR5_bras.addJoint(std::make_unique<CJointRevolute>(-M_PI, M_PI, 0, 0.2)); //elbow_joint
-    UR5_bras.addJoint(std::make_unique<CJointRevolute>(-M_PI, M_PI, 0, 0.05)); //wrist_1_joint
-    UR5_bras.addJoint(std::make_unique<CJointRevolute>(-M_PI, M_PI, 0, 0.05)); //wrist_2_joint
-    UR5_bras.addJoint(std::make_unique<CJointRevolute>(-M_PI, M_PI, 0, 0.05)); //wrist_3_joint
+    UR5_bras.addJoint(std::make_unique<CJointRevoluteWithAxe>(
+        -2.0 * M_PI, 2.0 * M_PI, q(0),
+        Eigen::Vector3d(0.0, 0.0, 1.0),
+        Eigen::Vector3d(0.0, 0.0, 0.089159),
+        Eigen::Vector3d(0.0, 0.0, 0.0))); // shoulder_pan_joint
+
+    UR5_bras.addJoint(std::make_unique<CJointRevoluteWithAxe>(
+        -2.0 * M_PI, 2.0 * M_PI, q(1),
+        Eigen::Vector3d(0.0, 1.0, 0.0),
+        Eigen::Vector3d(0.0, 0.13585, 0.0),
+        Eigen::Vector3d(0.0, 1.57079632679, 0.0))); // shoulder_lift_joint
+
+    UR5_bras.addJoint(std::make_unique<CJointRevoluteWithAxe>(
+        -M_PI, M_PI, q(2),
+        Eigen::Vector3d(0.0, 1.0, 0.0),
+        Eigen::Vector3d(0.0, -0.1197, 0.425),
+        Eigen::Vector3d(0.0, 0.0, 0.0))); // elbow_joint
+
+    UR5_bras.addJoint(std::make_unique<CJointRevoluteWithAxe>(
+        -2.0 * M_PI, 2.0 * M_PI, q(3),
+        Eigen::Vector3d(0.0, 1.0, 0.0),
+        Eigen::Vector3d(0.0, 0.0, 0.39225),
+        Eigen::Vector3d(0.0, 1.57079632679, 0.0))); // wrist_1_joint
+
+    UR5_bras.addJoint(std::make_unique<CJointRevoluteWithAxe>(
+        -2.0 * M_PI, 2.0 * M_PI, q(4),
+        Eigen::Vector3d(0.0, 0.0, 1.0),
+        Eigen::Vector3d(0.0, 0.093, 0.0),
+        Eigen::Vector3d(0.0, 0.0, 0.0))); // wrist_2_joint
+
+    UR5_bras.addJoint(std::make_unique<CJointRevoluteWithAxe>(
+        -2.0 * M_PI, 2.0 * M_PI, q(5),
+        Eigen::Vector3d(0.0, 1.0, 0.0),
+        Eigen::Vector3d(0.0, 0.0, 0.09465),
+        Eigen::Vector3d(0.0, 0.0, 0.0))); // wrist_3_joint
 
 
 }
